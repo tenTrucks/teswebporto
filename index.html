@@ -67,14 +67,18 @@
                 <div class="absolute top-4 left-4 font-mono text-[10px] text-slate-500 bg-[#0f1115] px-2 py-1 rounded border border-slate-800 z-10">
                     INTERACTIVE_3D_VIEWER (HOLD & ROTATE)
                 </div>
-                <model-viewer 
-                    src="https://modelviewer.dev/shared-assets/models/Astronaut.glb" 
-                    alt="Rocket Avionics 3D Model" 
-                    auto-rotate 
-                    camera-controls 
-                    shadow-intensity="1"
-                    class="w-full h-[400px] bg-[#0f1115] rounded-lg">
-                </model-viewer>
+<model-viewer 
+    src="assets/3d/Rocket.usdz" 
+    alt="Rocket Avionics 3D Model" 
+    auto-rotate 
+    camera-controls
+    class="w-full h-[400px] bg-[#0f1115] rounded-lg"
+    auto-rotate 
+    
+    rotation-per-second="17deg" 
+    
+    interaction-prompt-threshold="3000">
+</model-viewer>
             </div>
         </section>
 
