@@ -40,8 +40,9 @@
                 <button onclick="switchView('main', '#f8fafc')" id="nav-link-main" class="px-3 py-1.5 rounded-full text-xs font-medium bg-white text-slate-900 shadow-sm transition-all duration-300">
                     Main
                 </button>
-                <button onclick="switchView('teknik', '#0f1115')" id="nav-link-teknik" class="px-3 py-1.5 rounded-full text-xs font-medium text-slate-600 hover:text-slate-900 transition-all duration-300">
-                    R&D Lab
+                <!-- PENYESUAIAN: ID, parameter switchView, dan teks diubah menjadi Engineering -->
+                <button onclick="switchView('engineering', '#0f1115')" id="nav-link-engineering" class="px-3 py-1.5 rounded-full text-xs font-medium text-slate-600 hover:text-slate-900 transition-all duration-300">
+                    Engineering
                 </button>
                 <button onclick="switchView('artsy', '#fcfbf9')" id="nav-link-artsy" class="px-3 py-1.5 rounded-full text-xs font-medium text-slate-600 hover:text-slate-900 transition-all duration-300">
                     Garis Tepi
@@ -69,21 +70,14 @@
 
 
     <!-- ========================================================= -->
-    <!-- SECTION 2: THE R&D LAB (CYBER-LAB / DARK MODE)          -->
+    <!-- SECTION 2: ENGINEERING (CYBER-LAB / DARK MODE)            -->
     <!-- ========================================================= -->
-    <div id="view-teknik" class="hidden min-h-screen pt-24 pb-16 font-mono bg-[#0f1115] text-[#e2e8f0]">
-        <main class="max-w-7xl mx-auto px-6 space-y-16">
+    <!-- PENYESUAIAN: ID Utama diubah menjadi view-engineering -->
+
+
+    <div id="view-engineering" class="hidden min-h-screen pt-24 pb-16 font-sans bg-[#0f172a] text-slate-200">
+        <div class="max-w-5xl mx-auto px-6 space-y-20">
             
-            <!-- Lab Header -->
-            <div class="border-b border-slate-800 pb-6 flex flex-col md:flex-row justify-between md:items-end gap-4">
-                <div>
-                    <h1 class="text-3xl font-bold text-white tracking-tight">// SYSTEM_CORE // R&D_LAB</h1>
-                    <p class="text-xs text-cyan-400 mt-2">SYSTEM ENGINEERING, ELECTRONICS & COMPUTATION</p>
-                </div>
-                <div class="text-right text-xs text-slate-500">
-                    STATUS: ALL_SYSTEMS_OPERATIONAL<br>LOG_ID: FGH_2026
-                </div>
-            </div>
 
             <!-- Headline Section: 3D Rocket Project -->
             <section id="headline" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
@@ -92,7 +86,7 @@
                         <span>FEATURED PROJECT // HEADLINE</span>
                     </div>
                     <h2 class="text-4xl font-bold tracking-tight text-white leading-tight">
-                        Autonomous Model Rocket Telemetry & Avionics System
+                        Engineer Laboratory
                     </h2>
                     <p class="text-slate-400 text-base leading-relaxed font-sans">
                         Pengembangan sistem avionik roket model tingkat lanjut dengan integrasi sensor real-time, estimasi orientasi berbasis filter kalman, dan sistem kendali aktuator aktif. Dirancang untuk validasi data aerodinamika secara empiris menggunakan arsitektur multithreading FreeRTOS pada ESP32.
@@ -114,7 +108,6 @@
                     <div class="absolute top-4 left-4 font-mono text-[10px] text-slate-500 bg-[#0f1115] px-2 py-1 rounded border border-slate-800 z-10">
                         3D Rocket Model
                     </div>
-                    <!-- Integration of your requested model-viewer attributes -->
                     <model-viewer 
                         src="assets/3d/Rocket.glb" 
                         alt="Rocket Avionics 3D Model" 
@@ -127,70 +120,271 @@
                 </div>
             </section>
 
-            <hr class="border-slate-900">
-
-            <!-- Subprojects Layout Section -->
-            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
-                <!-- Left Column: Core Engineering Logs -->
-                <section id="rd-lab" class="lg:col-span-7 space-y-6">
-                    <div class="border-b border-slate-800 pb-2">
-                        <h3 class="text-lg font-bold text-cyan-400">01 // HARDWARE DESIGN & SYSTEMS</h3>
+            <!-- CATEGORY 1: EMBEDDED SYSTEMS & ROBOTICS -->
+            <section class="space-y-8">
+                <div class="flex items-center gap-3 border-b border-slate-800 pb-2">
+                    <span class="text-emerald-400 font-mono text-sm">[01]</span>
+                    <h2 class="text-lg font-semibold uppercase tracking-wider text-white">Embedded Systems & Robotics</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Proyek 1: Rocket Guidance -->
+                    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-lg font-bold text-white">Rocket Guidance & Telemetry System</h3>
+                                <span class="text-[10px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-800/50 px-2 py-0.5 rounded">ESP32</span>
+                            </div>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Sistem pemandu roket menggunakan 4 *moveable fins* untuk kontrol orientasi stabil. Dilengkapi sensor MPU dan BMP untuk kalkulasi data penerbangan, serta visualisasi grafis real-time langsung ke dashboard website.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
+                            <span>#ESP32</span> <span>#MPU-6050</span> <span>#BMP-Sensor</span> <span>#WebSockets</span> <span>#Control-System</span>
+                        </div>
                     </div>
 
-                    <div class="bg-[#161920] border border-slate-800 p-6 rounded-xl space-y-3 hover:border-cyan-500/40 transition-all">
-                        <span class="text-xs text-cyan-400">[ PCB DESIGN / HARDWARE ]</span>
-                        <h4 class="text-xl font-bold text-white">Multi-Layer Environmental Sensor Node</h4>
-                        <p class="text-sm text-slate-400 font-sans leading-relaxed">
-                            Desain PCB dua layer kompak untuk monitoring lingkungan berbasis daya rendah (low-power management). Mengoptimalkan impedansi jalur antena dan memisahkan ground plane analog-digital untuk stabilitas transmisi data pada frekuensi radio LoRa.
+                    <!-- Proyek 2: HydroSense -->
+                    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-lg font-bold text-white">HydroSense: Smart Plant Pot</h3>
+                                <span class="text-[10px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-800/50 px-2 py-0.5 rounded">Arduino</span>
+                            </div>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Pot pintar berbasis Arduino dengan sensor *water level*, *soil moisture*, dan *touch sensor* untuk otomatisasi *water pump*. Layar OLED menampilkan data real-time beserta ekspresi wajah/emotikon adaptif yang menggambarkan tingkat hidrasi tanaman.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
+                            <span>#Arduino</span> <span>#OLED-SSD1306</span> <span>#Automation</span> <span>#Smart-Agriculture</span>
+                        </div>
+                    </div>
+
+                    <!-- Proyek 3: Fit Watch -->
+                    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-lg font-bold text-white">Fit Watch Wearable</h3>
+                                <span class="text-[10px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-800/50 px-2 py-0.5 rounded">Wearable</span>
+                            </div>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Pengembangan *smartwatch* mandiri berbasis ESP32 dan MPU6050 untuk mendeteksi serta menghitung langkah kaki secara presisi, membedakan ritme jalan/lari, serta melacak detak jantung melalui *heart sensor* terintegrasi.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
+                            <span>#ESP32</span> <span>#MPU6050</span> <span>#Biomedical-Sensor</span> <span>#Fitness-Tracker</span>
+                        </div>
+                    </div>
+
+                    <!-- Proyek 4: IoT Kangkung Hidroponik (Lomba Karya Tulis) -->
+                    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-lg font-bold text-white">Automated Hydroponic IOT — Kangkung Study</h3>
+                                <span class="text-[10px] font-mono bg-blue-950 text-blue-400 border border-blue-800/50 px-2 py-0.5 rounded">Competition</span>
+                            </div>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Sistem otomasi penuh budidaya kangkung hidroponik untuk kompetisi karya tulis ilmiah. Diintegrasikan dengan website custom untuk memonitor fase pertumbuhan tanaman secara presisi serta mengontrol distribusi pupuk cair otomatis.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
+                            <span>#IoT</span> <span>#Full-Control</span> <span>#Automation</span> <span>#Research</span>
+                        </div>
+                    </div>
+
+
+                    <!-- Proyek 5 Suvifor -->
+                    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-sky-500/40 transition-all duration-300 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-lg font-bold text-white">SUVIFOR UNNES — Racing Plane UAV</h3>
+                                <span class="text-[10px] font-mono bg-sky-950 text-sky-400 border border-sky-800/50 px-2 py-0.5 rounded">KRTI Competition</span>
+                            </div>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Kontribusi dalam riset dan pengembangan pesawat tanpa awak (UAV) kecepatan tinggi untuk kategori Racing Plane pada Kontes Robot Terbang Indonesia (KRTI). Berfokus pada optimasi aerodinamika wahana terbang, konfigurasi sistem propulsi elektrik, serta tuning autopilot *closed-loop* untuk mencapai efisiensi manuver maksimum di lintasan balap.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
+                            <span>#UAV</span> <span>#Aerodynamics</span> <span>#Autopilot</span> <span>#Propulsion-System</span> <span>#RIPTEK-UNNES</span>
+                        </div>
+                    </div>
+
+
+                    <!-- Proyek 6 PANDAWA -->
+                    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-rose-500/40 transition-all duration-300 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-lg font-bold text-white">Pandawa Team UNNES — Body & Electrical</h3>
+                                <span class="text-[10px] font-mono bg-rose-950 text-rose-400 border border-rose-800/50 px-2 py-0.5 rounded">KMHE Competition</span>
+                            </div>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Berkontribusi dalam divisi Body & Electrical pada tim kendaraan hemat energi UNNES untuk ajang Kontes Mobil Hemat Energi (KMHE). Mengembangkan struktur bodi kendaraan ringan berbahan komposit serat karbon guna meminimalkan koefisien hambatan udara (*drag coefficient*), serta merancang manajemen distribusi daya listrik internal yang efisien untuk menekan konsumsi energi serendah mungkin.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
+                            <span>#Vehicle-Design</span> <span>#Carbon-Fiber</span> <span>#Electrical-Wiring</span> <span>#Energy-Efficiency</span> <span>#KMHE</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <section class="space-y-8">
+                <div class="flex items-center gap-3 border-b border-slate-800 pb-2">
+                    <span class="text-cyan-400 font-mono text-sm">[3D]</span>
+                    <h2 class="text-lg font-semibold uppercase tracking-wider text-white">Competition CAD & Asset Showcase</h2>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <div class="border border-slate-800 bg-[#161920] rounded-xl p-4 relative shadow-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="absolute top-4 left-4 font-mono text-[10px] text-sky-400 bg-[#0f1115] px-2 py-1 rounded border border-sky-900/50 z-10">
+                                SUVIFOR // Racing Plane Wahana Fixed-Wing
+                            </div>
+                            <model-viewer 
+                                src="assets/3d/RacingPlane.glb" 
+                                alt="SUVIFOR Racing Plane 3D Model" 
+                                auto-rotate 
+                                camera-controls
+                                class="w-full h-[320px] bg-[#0f1115] rounded-lg mb-4"
+                                rotation-per-second="15deg" 
+                                interaction-prompt-threshold="3000">
+                            </model-viewer>
+                        </div>
+                        <div class="space-y-1 font-sans">
+                            <h4 class="text-sm font-bold text-white">High-Speed UAV Aerodynamic Mesh</h4>
+                            <p class="text-xs text-slate-400">Iterasi desain bodi wahana terbang untuk mereduksi hambatan parasitisme udara pada kecepatan tinggi.</p>
+                        </div>
+                    </div>
+
+                    <div class="border border-slate-800 bg-[#161920] rounded-xl p-4 relative shadow-2xl flex flex-col justify-between">
+                        <div>
+                            <div class="absolute top-4 left-4 font-mono text-[10px] text-rose-400 bg-[#0f1115] px-2 py-1 rounded border border-rose-900/50 z-10">
+                                PANDAWA TEAM // KMHE Energy-Efficient Prototype
+                            </div>
+                            <model-viewer 
+                                src="assets/3d/KMHE_Car.glb" 
+                                alt="Pandawa KMHE Car 3D Model" 
+                                auto-rotate 
+                                camera-controls
+                                class="w-full h-[320px] bg-[#0f1115] rounded-lg mb-4"
+                                rotation-per-second="15deg" 
+                                interaction-prompt-threshold="3000">
+                            </model-viewer>
+                        </div>
+                        <div class="space-y-1 font-sans">
+                            <h4 class="text-sm font-bold text-white">Ultra-Low Drag Coefficient Shell</h4>
+                            <p class="text-xs text-slate-400">Eksplorasi ergonomi bodi purwarupa dan kalkulasi mekanis ruang sasis untuk penempatan komponen kelistrikan.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CATEGORY 2: FULL-STACK WEB DEVELOPMENT -->
+            <section class="space-y-8">
+                <div class="flex items-center gap-3 border-b border-slate-800 pb-2">
+                    <span class="text-amber-400 font-mono text-sm">[02]</span>
+                    <h2 class="text-lg font-semibold uppercase tracking-wider text-white">Full-Stack Web Development</h2>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    
+                    <!-- Website 1: Lunaruna -->
+                    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-lg font-bold text-white">LunAruna — Mental Health Platform</h3>
+                                <span class="text-[10px] font-mono bg-amber-950 text-amber-400 border border-amber-800/50 px-2 py-0.5 rounded">Laravel</span>
+                            </div>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Aplikasi web konseling psikologi interaktif dengan fitur penelusuran riwayat mood (*mood tracking*). Dibangun dengan arsitektur database terstruktur untuk mempermudah akses kesehatan mental pengguna.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
+                            <span>#Laravel</span> <span>#TailwindCSS</span> <span>#MySQL</span> <span>#Psychology-Tech</span>
+                        </div>
+                    </div>
+
+                    <!-- Website 2: IoT Hidroponik MQTT (Pengabdian Dosen) -->
+                    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-lg font-bold text-white">Hydroponic IoT Management Dashboard</h3>
+                                <span class="text-[10px] font-mono bg-red-950 text-red-400 border border-red-800/50 px-2 py-0.5 rounded">Community Service</span>
+                            </div>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Website monitoring ekosistem hidroponik skala besar yang dikembangkan untuk proyek pengabdian masyarakat bersama dosen. Menggunakan protokol komunikasi MQTT yang super ringan untuk transfer data sensor IoT secara *real-time*.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
+                            <span>#MQTT-Protocol</span> <span>#Full-Stack</span> <span>#IoT-Dashboard</span> <span>#Academic-Collab</span>
+                        </div>
+                    </div>
+
+                    <!-- Website 3: E-Commerce PC Peripheral -->
+                    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-lg font-bold text-white">Hardware Hub & Custom PC Build Service</h3>
+                                <span class="text-[10px] font-mono bg-amber-950 text-amber-400 border border-amber-800/50 px-2 py-0.5 rounded">E-Commerce</span>
+                            </div>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Platform web e-commerce komersial yang didedikasikan untuk penjualan peripheral komputer kelas atas serta penyediaan jasa kustomisasi rakit PC (*custom build*) terintegrasi.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
+                            <span>#E-Commerce</span> <span>#Web-App</span> <span>#Database-Design</span> <span>#Payment-Gateway</span>
+                        </div>
+                    </div>
+
+                    <!-- Website 4: Beabadoobee Profile -->
+                    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between">
+                        <div class="space-y-3">
+                            <div class="flex justify-between items-start">
+                                <h3 class="text-lg font-bold text-white">Beabadoobee Visual Artist Profile</h3>
+                                <span class="text-[10px] font-mono bg-stone-800 text-stone-300 border border-stone-700 px-2 py-0.5 rounded">Creative Web</span>
+                            </div>
+                            <p class="text-slate-400 text-sm leading-relaxed">
+                                Website profil interaktif untuk penyanyi Beabadoobee. Menonjolkan sisi estetika visual tinggi untuk menampilkan diskografi, lirik lagu, katalog album, serta kompilasi cerita perjalanan seni musisi terkait.
+                            </p>
+                        </div>
+                        <div class="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
+                            <span>#UI-UX</span> <span>#Front-End</span> <span>#Creative-Coding</span> <span>#Multimedia</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- CATEGORY 3: ARTIFICIAL INTELLIGENCE & COMPUTER VISION RESEARCH -->
+            <section class="space-y-8">
+                <div class="flex items-center gap-3 border-b border-slate-800 pb-2">
+                    <span class="text-purple-400 font-mono text-sm">[03]</span>
+                    <h2 class="text-lg font-semibold uppercase tracking-wider text-white">Artificial Intelligence & Research</h2>
+                </div>
+                
+                <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-purple-500/40 transition-all duration-300">
+                    <div class="space-y-4">
+                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
+                            <div>
+                                <h3 class="text-xl font-bold text-white">Comparative Study of Deep Learning Models for Melanoma Detection</h3>
+                                <p class="text-xs text-slate-400 font-mono mt-1">Published Framework / Convolutional Neural Networks (CNN)</p>
+                            </div>
+                            <span class="text-[10px] font-mono bg-purple-950 text-purple-400 border border-purple-800/50 px-2 py-0.5 rounded self-start">Deep Learning</span>
+                        </div>
+                        <p class="text-slate-400 text-sm leading-relaxed">
+                            Melakukan eksperimen riset komparatif mengevaluasi performa tiga arsitektur *Deep Learning* mutakhir, yaitu **ResNet-50**, **MobileNet-V2**, dan **EfficientNet** dalam mendeteksi penyakit kanker kulit Melanoma secara akurat. Fokus pada analisis tradeoff antara akurasi model vs kecepatan komputasi (*resource efficiency*) untuk deployment skala praktis.
                         </p>
-                        <div class="text-xs text-slate-500 pt-2 border-t border-slate-800/60">Tools: Altium Designer, KiCAD, Cirkit Designer</div>
+                        <div class="pt-2 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
+                            <span>#Python</span> <span>#TensorFlow</span> <span>#PyTorch</span> <span>#Computer-Vision</span> <span>#Medical-AI</span> <span>#Image-Classification</span>
+                        </div>
                     </div>
+                </div>
+            </section>
 
-                    <div class="bg-[#161920] border border-slate-800 p-6 rounded-xl space-y-3 hover:border-cyan-500/40 transition-all">
-                        <span class="text-xs text-cyan-400">[ FULL-STACK WEB / IOT ]</span>
-                        <h4 class="text-xl font-bold text-white">Industrial IoT Real-time Dashboard</h4>
-                        <p class="text-sm text-slate-400 font-sans leading-relaxed">
-                            Membangun infrastruktur backend kokoh menggunakan Laravel untuk mengonsumsi data stream dari ratusan sensor via protokol MQTT. Dilengkapi dengan manajemen database terstruktur untuk melacak siklus otomatisasi komponen akuator lapangan.
-                        </p>
-                        <div class="text-xs text-slate-500 pt-2 border-t border-slate-800/60">Tools: Laravel, Tailwind CSS, MQTT, Mosquitto Broker</div>
-                    </div>
-
-                    <div class="bg-[#161920] border border-slate-800 p-6 rounded-xl space-y-3 hover:border-cyan-500/40 transition-all">
-                        <span class="text-xs text-cyan-400">[ RESEARCH / IMAGE PROCESSING ]</span>
-                        <h4 class="text-xl font-bold text-white">Computer Vision for Underwater Quality Enhancement</h4>
-                        <p class="text-sm text-slate-400 font-sans leading-relaxed">
-                            Kolaborasi riset akademik bersama dosen dalam menerapkan algoritma manipulasi matriks gambar lewat Python OpenCV. Menggunakan pendekatan Fourier Transform untuk memperbaiki kontras dan kecerahan pada sampel citra bawah air yang buram.
-                        </p>
-                        <div class="text-xs text-slate-500 pt-2 border-t border-slate-800/60">Tools: Python, OpenCV, NumPy, Fourier Analysis</div>
-                    </div>
-                </section>
-
-                <!-- Right Column: Microcontrollers & Education -->
-                <section class="lg:col-span-5 space-y-6">
-                    <div class="border-b border-slate-800 pb-2">
-                        <h3 class="text-lg font-bold text-cyan-400">02 // CONTRIBUTIONS & ACADEMICS</h3>
-                    </div>
-
-                    <div class="bg-[#161920] border border-slate-800 p-6 rounded-xl space-y-3 hover:border-cyan-500/40 transition-all">
-                        <span class="text-xs text-cyan-400">[ EMBEDDED SYSTEMS / APPLIED ]</span>
-                        <h4 class="text-lg font-bold text-white">Task Stack Monitoring on Real-Time Kernel</h4>
-                        <p class="text-xs text-slate-400 font-sans leading-relaxed">
-                            Eksperimen laboratorium teknik komputer untuk melacak sisa memori alokasi dinamis pada kernel FreeRTOS. Berguna mencegah fenomena fatal stack overflow pada aplikasi otomasi mikrokontroler kritis.
-                        </p>
-                    </div>
-
-                    <div class="bg-[#161920] border border-slate-800 p-6 rounded-xl space-y-3 hover:border-cyan-500/40 transition-all">
-                        <span class="text-xs text-cyan-400">[ SOCIAL_ENGAGEMENT / TRIDHARMA ]</span>
-                        <h4 class="text-lg font-bold text-white">IoT Workshop for High Schoolers</h4>
-                        <p class="text-xs text-slate-400 font-sans leading-relaxed">
-                            Bertindak sebagai pemateri utama dalam program pengabdian masyarakat untuk mengenalkan arsitektur dasar mikrokontroler, rangkaian logika dasar digital, dan ekosistem internet of things kepada siswa sekolah menengah.
-                        </p>
-                    </div>
-                </section>
-            </div>
-        </main>
+        </div>
     </div>
-
 
     <!-- ========================================================= -->
     <!-- SECTION 3: TEPI GARIS (EDITORIAL / HUMAN & ARTSY LOOK)   -->
@@ -574,13 +768,13 @@
 
             const views = {
                 main: document.getElementById('view-main'),
-                teknik: document.getElementById('view-teknik'),
+                engineering: document.getElementById('view-engineering'),
                 artsy: document.getElementById('view-artsy')
             };
 
             const navLinks = {
                 main: document.getElementById('nav-link-main'),
-                teknik: document.getElementById('nav-link-teknik'),
+                engineering: document.getElementById('nav-link-engineering'),
                 artsy: document.getElementById('nav-link-artsy')
             };
 
@@ -596,7 +790,7 @@
                 window.scrollTo(0, 0);
 
                 // Dinamisasi Tema Komponen Navigasi & Footer Global
-                if (targetView === 'teknik') {
+                if (targetView === 'engineering') {
                     nav.className = "fixed top-0 left-0 right-0 z-40 border-b border-slate-800 bg-[#0f1115]/90 backdrop-blur";
                     navBrand.className = "font-mono text-sm tracking-wider font-bold text-white";
                     navIndicator.className = "w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse";
@@ -619,7 +813,7 @@
                 // Mutasi Style Tombol Navigasi Aktif vs Pasif
                 Object.keys(navLinks).forEach(key => {
                     if (key === targetView) {
-                        if (targetView === 'teknik') {
+                        if (targetView === 'engineering') {
                             navLinks[key].className = "px-3 py-1.5 rounded-full text-xs font-mono bg-cyan-500 text-black font-bold shadow-sm";
                         } else if (targetView === 'artsy') {
                             navLinks[key].className = "px-3 py-1.5 rounded-full text-xs font-serif bg-amber-800 text-white font-medium shadow-sm";
@@ -627,7 +821,7 @@
                             navLinks[key].className = "px-3 py-1.5 rounded-full text-xs font-sans bg-slate-900 text-white font-medium shadow-sm";
                         }
                     } else {
-                        if (targetView === 'teknik') {
+                        if (targetView === 'engineering') {
                             navLinks[key].className = "px-3 py-1.5 rounded-full text-xs font-mono text-slate-500 hover:text-white transition-all duration-200";
                         } else if (targetView === 'artsy') {
                             navLinks[key].className = "px-3 py-1.5 rounded-full text-xs font-serif text-stone-400 hover:text-stone-900 transition-all duration-200";
