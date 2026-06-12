@@ -76,7 +76,7 @@
         <div class="absolute right-0 bottom-0 h-[65vh] lg:h-[87vh] flex items-end justify-end z-10 pointer-events-none select-none overflow-hidden">
             <img 
                 id="chibi-pixel-interactive"
-                src="assets/img/chibi-kanan.png" 
+                src="assets/img/chibi-kanan.webp" 
                 alt="Chibi Pixel Self" 
                 class="h-full w-auto object-contain object-right-bottom image-render-pixelated drop-shadow-[-15px_15px_30px_rgba(0,0,0,0.06)]"
             />
@@ -858,13 +858,13 @@
             const chibiImg = document.getElementById('chibi-pixel-interactive');
             
             // Definisikan path ke kedua versi file gambar chibi kamu
-            const spriteKanan = "assets/img/chibi-kanan.png";
-            const spriteKiri = "assets/img/chibi-kiri.png";
+            const spriteKanan = "assets/img/chibi-kanan.webp";
+            const spriteKiri = "assets/img/chibi-kiri.webp";
             
             // Interval cepat (400ms = 0.4 detik sekali) untuk menukar file secara berkala
             setInterval(() => {
                 if (chibiImg) {
-                    if (chibiImg.src.includes("chibi-kanan.png")) {
+                    if (chibiImg.src.includes("chibi-kanan.webp")) {
                         chibiImg.src = spriteKiri;
                     } else {
                         chibiImg.src = spriteKanan;
