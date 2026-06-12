@@ -208,22 +208,18 @@
             </div>
 
             <!-- SUBSECTION 1: THE INTELLECTUAL LIBRARY -->
+            <!-- SUBSECTION 1: THE INTELLECTUAL LIBRARY -->
             <section id="library" class="space-y-8">
                 <div class="border-b border-stone-200 pb-2">
                     <h2 class="font-sans text-xs uppercase tracking-widest text-amber-800 font-semibold">01 / The Intellectual Library</h2>
                 </div>
                 
-                <!-- CONTAINER MAIN GRID BUKU -->
+                <!-- 1. GRID UNTUK CURRENT READS (TOP 3 BUKU) -->
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    
-                    <!-- ========================================================= -->
-                    <!-- CURRENT READS (PROMINENT TOP 3 BUKU)                      -->
-                    <!-- ========================================================= -->
                     
                     <!-- Buku 1: Bumi Manusia -->
                     <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
-                        <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm relative">
-                            <!-- Format terbaik: .webp | Ukuran ideal: 400x600 px -->
+                        <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
                             <img src="assets/img/bumi-manusia.webp" alt="Bumi Manusia" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=400&h=600&q=80'">
                         </div>
                         <div class="flex flex-col justify-between py-1">
@@ -275,182 +271,179 @@
                         </div>
                     </div>
 
-
-                    <!-- ========================================================= -->
-                    <!-- SHOW MORE CONTAINER (HIDDEN BY DEFAULT WITH ACCORDION EFFECT) -->
-                    <!-- ========================================================= -->
-                    <div id="extended-library" class="hidden md:contents">
-                        <!-- Komponen ini menggunakan Tailwind 'contents' agar grid child-nya menyatu langsung dengan grid utama saat JavaScript melepas class 'hidden' -->
-                        
-                        <!-- Buku 4: Aku Ini Binatang Jalang -->
-                        <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
-                            <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                                <img src="assets/img/binatang-jalang.webp" alt="Aku Ini Binatang Jalang" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
-                            </div>
-                            <div class="flex flex-col justify-between py-1">
-                                <div class="space-y-1">
-                                    <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Puisi / Sastra</span>
-                                    <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Aku Ini Binatang Jalang</h3>
-                                    <p class="text-xs text-stone-500 font-sans">Chairil Anwar</p>
-                                </div>
-                                <div class="font-sans text-[11px] text-stone-400 pt-2">Kumpulan puisi ekspresif sang pelopor Angkatan '45.</div>
-                            </div>
-                        </div>
-
-                        <!-- Buku 5: Aksi Massa -->
-                        <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
-                            <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                                <img src="assets/img/aksi-massa.webp" alt="Aksi Massa" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
-                            </div>
-                            <div class="flex flex-col justify-between py-1">
-                                <div class="space-y-1">
-                                    <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Nonfiksi / Sosial-Politik</span>
-                                    <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Aksi Massa</h3>
-                                    <p class="text-xs text-stone-500 font-sans">Tan Malaka</p>
-                                </div>
-                                <div class="font-sans text-[11px] text-stone-400 pt-2">Pemikiran taktis mengenai gerakan massa menuju kemerdekaan penuh.</div>
-                            </div>
-                        </div>
-
-                        <!-- Buku 6: Orang-orang di Persimpangan Kiri Jalan -->
-                        <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
-                            <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                                <img src="assets/img/persimpangan-kiri.webp" alt="Orang-orang di Persimpangan Kiri Jalan" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
-                            </div>
-                            <div class="flex flex-col justify-between py-1">
-                                <div class="space-y-1">
-                                    <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Sejarah / Nonfiksi</span>
-                                    <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Orang-orang di Persimpangan Kiri Jalan</h3>
-                                    <p class="text-xs text-stone-500 font-sans">Soe Hok Gie</p>
-                                </div>
-                                <div class="font-sans text-[11px] text-stone-400 pt-2">Analisis historis seputar pergerakan PKI Madiun 1948.</div>
-                            </div>
-                        </div>
-
-                        <!-- Buku 7: Re: dan Perempuan -->
-                        <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
-                            <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                                <img src="assets/img/re-perempuan.webp" alt="Re: dan Perempuan" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
-                            </div>
-                            <div class="flex flex-col justify-between py-1">
-                                <div class="space-y-1">
-                                    <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Fiksi Populer / Drama Sosial</span>
-                                    <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Re: dan Perempuan</h3>
-                                    <p class="text-xs text-stone-500 font-sans">Maman Suherman</p>
-                                </div>
-                                <div class="font-sans text-[11px] text-stone-400 pt-2">Investigasi realitas kelam perdagangan manusia dari sudut jurnalis.</div>
-                            </div>
-                        </div>
-
-                        <!-- Buku 8: Rudy sang Visioner -->
-                        <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
-                            <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                                <img src="assets/img/rudy-visioner.webp" alt="Rudy Sang Visioner" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
-                            </div>
-                            <div class="flex flex-col justify-between py-1">
-                                <div class="space-y-1">
-                                    <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Biografi / Drama</span>
-                                    <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Rudy: Kisah Masa Muda Sang Visioner</h3>
-                                    <p class="text-xs text-stone-500 font-sans">Gina S. Noer</p>
-                                </div>
-                                <div class="font-sans text-[11px] text-stone-400 pt-2">Perjalanan masa muda B.J. Habibie saat menuntut ilmu di Jerman.</div>
-                            </div>
-                        </div>
-
-                        <!-- Buku 9: Notasi -->
-                        <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
-                            <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                                <img src="assets/img/notasi.webp" alt="Notasi" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
-                            </div>
-                            <div class="flex flex-col justify-between py-1">
-                                <div class="space-y-1">
-                                    <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Fiksi Romantis / Sejarah</span>
-                                    <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Notasi</h3>
-                                    <p class="text-xs text-stone-500 font-sans">Morra Quatro</p>
-                                </div>
-                                <div class="font-sans text-[11px] text-stone-400 pt-2">Kisah cinta mahasiswa teknik di tengah gejolak demonstrasi 1998.</div>
-                            </div>
-                        </div>
-
-                        <!-- Buku 10: Men are from mars women from venus -->
-                        <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
-                            <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                                <img src="assets/img/mars-venus.webp" alt="Men Are from Mars, Women Are from Venus" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
-                            </div>
-                            <div class="flex flex-col justify-between py-1">
-                                <div class="space-y-1">
-                                    <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Pengembangan Diri / Psikologi</span>
-                                    <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Men Are from Mars, Women Are from Venus</h3>
-                                    <p class="text-xs text-stone-500 font-sans">John Gray</p>
-                                </div>
-                                <div class="font-sans text-[11px] text-stone-400 pt-2">Panduan memahami perbedaan psikologis komunikasi pria dan wanita.</div>
-                            </div>
-                        </div>
-
-                        <!-- Buku 11: Lebih putih dariku -->
-                        <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
-                            <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                                <img src="assets/img/lebih-putih.webp" alt="Lebih Putih Dariku" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
-                            </div>
-                            <div class="flex flex-col justify-between py-1">
-                                <div class="space-y-1">
-                                    <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Puisi / Sastra Otobiografi</span>
-                                    <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Lebih Putih Dariku</h3>
-                                    <p class="text-xs text-stone-500 font-sans">Sitor Situmorang</p>
-                                </div>
-                                <div class="font-sans text-[11px] text-stone-400 pt-2">Refleksi puitis mendalam mengenai identitas, pengasingan, dan tanah air.</div>
-                            </div>
-                        </div>
-
-                        <!-- Buku 12: Seperti rindu dendam harus terbayarkan -->
-                        <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
-                            <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                                <img src="assets/img/rindu-dendam.webp" alt="Seperti Dendam Rindu Harus Dibayar Tuntas" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
-                            </div>
-                            <div class="flex flex-col justify-between py-1">
-                                <div class="space-y-1">
-                                    <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Fiksi Kontemporer / Satir</span>
-                                    <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Seperti Dendam, Rindu Harus Dibayar Tuntas</h3>
-                                    <p class="text-xs text-stone-500 font-sans">Eka Kurniawan</p>
-                                </div>
-                                <div class="font-sans text-[11px] text-stone-400 pt-2">Kisah absurdisme maskulinitas, trauma, dan kekerasan yang satir.</div>
-                            </div>
-                        </div>
-
-                        <!-- Buku 13: Perempuan di titik nol -->
-                        <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
-                            <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                                <img src="assets/img/titik-nol.webp" alt="Perempuan di Titik Nol" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
-                            </div>
-                            <div class="flex flex-col justify-between py-1">
-                                <div class="space-y-1">
-                                    <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Fiksi / Realisme Sosial</span>
-                                    <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Perempuan di Titik Nol</h3>
-                                    <p class="text-xs text-stone-500 font-sans">Nawal El Saadawi</p>
-                                </div>
-                                <div class="font-sans text-[11px] text-stone-400 pt-2">Perlawanan radikal seorang perempuan menghadapi penindasan sistem patriarki.</div>
-                            </div>
-                        </div>
-
-                        <!-- Buku 14: Orang orang proyek -->
-                        <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
-                            <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                                <img src="assets/img/orang-proyek.webp" alt="Orang-orang Proyek" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
-                            </div>
-                            <div class="flex flex-col justify-between py-1">
-                                <div class="space-y-1">
-                                    <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Fiksi / Kritik Sosial</span>
-                                    <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Orang-orang Proyek</h3>
-                                    <p class="text-xs text-stone-500 font-sans">Ahmad Tohari</p>
-                                </div>
-                                <div class="font-sans text-[11px] text-stone-400 pt-2">Kritik idealisme dunia teknik sipil melawan korupsi era Orde Baru.</div>
-                            </div>
-                        </div>
-
-                    </div>
                 </div>
 
-                <!-- CONTROLLER INTERACTION TRIGGER (SHOW MORE BUTTON) -->
+                <!-- 2. SEPARATE GRID UNTUK EXTENDED LIBRARY (HIDDEN BY DEFAULT SECARA ABSOLUT) -->
+                <div id="extended-library" class="hidden grid-cols-1 md:grid-cols-2 gap-6 pt-6 border-t border-dashed border-stone-200">
+                    
+                    <!-- Buku 4: Aku Ini Binatang Jalang -->
+                    <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
+                        <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
+                            <img src="assets/img/binatang-jalang.webp" alt="Aku Ini Binatang Jalang" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                        </div>
+                        <div class="flex flex-col justify-between py-1">
+                            <div class="space-y-1">
+                                <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Puisi / Sastra</span>
+                                <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Aku Ini Binatang Jalang</h3>
+                                <p class="text-xs text-stone-500 font-sans">Chairil Anwar</p>
+                            </div>
+                            <div class="font-sans text-[11px] text-stone-400 pt-2">Kumpulan puisi ekspresif sang pelopor Angkatan '45.</div>
+                        </div>
+                    </div>
+
+                    <!-- Buku 5: Aksi Massa -->
+                    <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
+                        <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
+                            <img src="assets/img/aksi-massa.webp" alt="Aksi Massa" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                        </div>
+                        <div class="flex flex-col justify-between py-1">
+                            <div class="space-y-1">
+                                <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Nonfiksi / Sosial-Politik</span>
+                                <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Aksi Massa</h3>
+                                <p class="text-xs text-stone-500 font-sans">Tan Malaka</p>
+                            </div>
+                                <div class="font-sans text-[11px] text-stone-400 pt-2">Pemikiran taktis mengenai gerakan massa menuju kemerdekaan penuh.</div>
+                        </div>
+                    </div>
+
+                    <!-- Buku 6: Orang-orang di Persimpangan Kiri Jalan -->
+                    <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
+                        <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
+                            <img src="assets/img/persimpangan-kiri.webp" alt="Orang-orang di Persimpangan Kiri Jalan" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                        </div>
+                        <div class="flex flex-col justify-between py-1">
+                            <div class="space-y-1">
+                                <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Sejarah / Nonfiksi</span>
+                                <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Orang-orang di Persimpangan Kiri Jalan</h3>
+                                <p class="text-xs text-stone-500 font-sans">Soe Hok Gie</p>
+                            </div>
+                            <div class="font-sans text-[11px] text-stone-400 pt-2">Analisis historis seputar pergerakan PKI Madiun 1948.</div>
+                        </div>
+                    </div>
+
+                    <!-- Buku 7: Re: dan Perempuan -->
+                    <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
+                        <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
+                            <img src="assets/img/re-perempuan.webp" alt="Re: dan Perempuan" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                        </div>
+                        <div class="flex flex-col justify-between py-1">
+                            <div class="space-y-1">
+                                <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Fiksi Populer / Drama Sosial</span>
+                                <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Re: dan Perempuan</h3>
+                                <p class="text-xs text-stone-500 font-sans">Maman Suherman</p>
+                            </div>
+                            <div class="font-sans text-[11px] text-stone-400 pt-2">Investigasi realitas kelam perdagangan manusia dari sudut jurnalis.</div>
+                        </div>
+                    </div>
+
+                    <!-- Buku 8: Rudy sang Visioner -->
+                    <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
+                        <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
+                            <img src="assets/img/rudy-visioner.webp" alt="Rudy Sang Visioner" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                        </div>
+                        <div class="flex flex-col justify-between py-1">
+                            <div class="space-y-1">
+                                <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Biografi / Drama</span>
+                                <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Rudy: Kisah Masa Muda Sang Visioner</h3>
+                                <p class="text-xs text-stone-500 font-sans">Gina S. Noer</p>
+                            </div>
+                            <div class="font-sans text-[11px] text-stone-400 pt-2">Perjalanan masa muda B.J. Habibie saat menuntut ilmu di Jerman.</div>
+                        </div>
+                    </div>
+
+                    <!-- Buku 9: Notasi -->
+                    <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
+                        <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
+                            <img src="assets/img/notasi.webp" alt="Notasi" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                        </div>
+                        <div class="flex flex-col justify-between py-1">
+                            <div class="space-y-1">
+                                <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Fiksi Romantis / Sejarah</span>
+                                <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Notasi</h3>
+                                <p class="text-xs text-stone-500 font-sans">Morra Quatro</p>
+                            </div>
+                            <div class="font-sans text-[11px] text-stone-400 pt-2">Kisah cinta mahasiswa teknik di tengah gejolak demonstrasi 1998.</div>
+                        </div>
+                    </div>
+
+                    <!-- Buku 10: Men are from mars women from venus -->
+                    <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
+                        <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
+                            <img src="assets/img/mars-venus.webp" alt="Men Are from Mars, Women Are from Venus" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                        </div>
+                        <div class="flex flex-col justify-between py-1">
+                            <div class="space-y-1">
+                                <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Pengembangan Diri / Psikologi</span>
+                                <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Men Are from Mars, Women Are from Venus</h3>
+                                <p class="text-xs text-stone-500 font-sans">John Gray</p>
+                            </div>
+                            <div class="font-sans text-[11px] text-stone-400 pt-2">Panduan memahami perbedaan psikologis komunikasi pria dan wanita.</div>
+                        </div>
+                    </div>
+
+                    <!-- Buku 11: Lebih putih dariku -->
+                    <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
+                        <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
+                            <img src="assets/img/lebih-putih.webp" alt="Lebih Putih Dariku" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                        </div>
+                        <div class="flex flex-col justify-between py-1">
+                            <div class="space-y-1">
+                                <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Puisi / Sastra Otobiografi</span>
+                                <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Lebih Putih Dariku</h3>
+                                <p class="text-xs text-stone-500 font-sans">Sitor Situmorang</p>
+                            </div>
+                            <div class="font-sans text-[11px] text-stone-400 pt-2">Refleksi puitis mendalam mengenai identitas, pengasingan, dan tanah air.</div>
+                        </div>
+                    </div>
+
+                    <!-- Buku 12: Seperti rindu dendam harus terbayarkan -->
+                    <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
+                        <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
+                            <img src="assets/img/rindu-dendam.webp" alt="Seperti Dendam Rindu Harus Dibayar Tuntas" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                        </div>
+                        <div class="flex flex-col justify-between py-1">
+                            <div class="space-y-1">
+                                <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Fiksi Kontemporer / Satir</span>
+                                <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Seperti Dendam, Rindu Harus Dibayar Tuntas</h3>
+                                <p class="text-xs text-stone-500 font-sans">Eka Kurniawan</p>
+                            </div>
+                            <div class="font-sans text-[11px] text-stone-400 pt-2">Kisah absurdisme maskulinitas, trauma, dan kekerasan yang satir.</div>
+                        </div>
+                    </div>
+
+                    <!-- Buku 13: Perempuan di titik nol -->
+                    <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
+                        <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
+                            <img src="assets/img/titik-nol.webp" alt="Perempuan di Titik Nol" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                        </div>
+                        <div class="flex flex-col justify-between py-1">
+                            <div class="space-y-1">
+                                <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Fiksi / Realisme Sosial</span>
+                                <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Perempuan di Titik Nol</h3>
+                                <p class="text-xs text-stone-500 font-sans">Nawal El Saadawi</p>
+                            </div>
+                            <div class="font-sans text-[11px] text-stone-400 pt-2">Perlawanan radikal seorang perempuan menghadapi penindasan sistem patriarki.</div>
+                        </div>
+                    </div>
+
+                    <!-- Buku 14: Orang orang proyek -->
+                    <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
+                        <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
+                            <img src="assets/img/orang-proyek.webp" alt="Orang-orang Proyek" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                        </div>
+                        <div class="flex flex-col justify-between py-1">
+                            <div class="space-y-1">
+                                <span class="font-sans text-[9px] font-mono tracking-wider text-stone-500 uppercase bg-stone-50 px-2 py-0.5 rounded border border-stone-200/60 inline-block">Fiksi / Kritik Sosial</span>
+                                <h3 class="font-sans font-bold text-sm sm:text-base text-stone-900 leading-snug">Orang-orang Proyek</h3>
+                                <p class="text-xs text-stone-500 font-sans">Ahmad Tohari</p>
+                            </div>
+                            <div class="font-sans text-[11px] text-stone-400 pt-2">Kritik idealisme dunia teknik sipil melawan korupsi era Orde Baru.</div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- CONTROLLER INTERACTION TRIGGER -->
                 <div class="text-center pt-4">
                     <button id="btn-toggle-library" onclick="toggleLibrary()" class="font-sans text-xs font-medium uppercase tracking-widest text-amber-950 border border-stone-300 bg-stone-50 px-6 py-2.5 rounded-full hover:bg-stone-100 active:scale-95 transition-all duration-150 shadow-sm">
                         Show More
@@ -516,21 +509,23 @@
     <!-- ========================================================= -->
     <!-- JAVASCRIPT LOGIC FOR ACCORDION INTERACTION                -->
     <!-- ========================================================= -->
-    <script>
+<script>
         function toggleLibrary() {
             const extendedLibrary = document.getElementById('extended-library');
             const toggleBtn = document.getElementById('btn-toggle-library');
 
             if (extendedLibrary.classList.contains('hidden')) {
-                // Tampilkan semua buku sisa
+                // Tampilkan sisa buku dengan grid di mobile maupun desktop secara konsisten
                 extendedLibrary.classList.remove('hidden');
+                extendedLibrary.classList.add('grid');
                 toggleBtn.innerText = "Show Less";
             } else {
-                // Sembunyikan dan kunci kembali ke Top 3
+                // Sembunyikan kembali secara total
                 extendedLibrary.classList.add('hidden');
+                extendedLibrary.classList.remove('grid');
                 toggleBtn.innerText = "Show More";
                 
-                // Halus: Kembalikan scroll monitor ke area library biar tidak distorsi
+                // Kembalikan view fokus ke bagian library utama secara smooth
                 document.getElementById('library').scrollIntoView({ behavior: 'smooth' });
             }
         }
