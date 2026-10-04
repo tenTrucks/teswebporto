@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="id" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fattaah Garis Husodo // Engineering & Garis Tepi</title>
+    <title>Fattaah Garis Husodo // Portofolio Teknik Komputer</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Fonts Setup -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -17,6 +17,8 @@
         .font-sans { font-family: 'Inter', sans-serif; }
         .font-mono { font-family: 'JetBrains Mono', monospace; }
         .font-serif { font-family: 'Playfair Display', serif; }
+        .scrollbar-hide::-webkit-scrollbar { display: none; }
+        .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
 </head>
 <body id="app-body" class="bg-[#f8fafc] text-slate-900 min-h-screen relative transition-colors duration-500 font-sans antialiased">
@@ -25,43 +27,41 @@
     <div id="transition-overlay" class="fixed inset-0 pointer-events-none z-50 bg-black opacity-0 transition-opacity duration-200 ease-in-out"></div>
 
     <!-- ========================================================= -->
-    <!-- GLOBAL CORE NAVBAR                                        -->
+    <!-- NAVIGASI SINGLE PAGE                                      -->
     <!-- ========================================================= -->
-    <nav id="global-nav" class="fixed top-0 left-0 right-0 z-40 border-b border-slate-200 bg-white/80 backdrop-blur transition-all duration-500">
-        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
-            <!-- Brand Identity -->
-            <div onclick="switchView('main', '#f8fafc')" class="cursor-pointer flex items-center space-x-2">
-                <div id="nav-indicator" class="w-2.5 h-2.5 rounded-full bg-slate-900 transition-colors duration-500"></div>
-                <span id="nav-brand" class="font-sans font-medium text-sm tracking-tight text-slate-900 transition-colors duration-500">fattaah.dev</span>
-            </div>
-            
-            <!-- Navigation Control Panel -->
-            <div class="flex items-center space-x-2 bg-slate-100 p-1 rounded-full border border-slate-200/60 transition-all duration-500" id="nav-wrapper">
-                <button onclick="switchView('main', '#f8fafc')" id="nav-link-main" class="px-3 py-1.5 rounded-full text-xs font-medium bg-white text-slate-900 shadow-sm transition-all duration-300">
-                    Main
-                </button>
-                <!-- PENYESUAIAN: ID, parameter switchView, dan teks diubah menjadi Engineering -->
-                <button onclick="switchView('engineering', '#0f1115')" id="nav-link-engineering" class="px-3 py-1.5 rounded-full text-xs font-medium text-slate-600 hover:text-slate-900 transition-all duration-300">
+    <nav id="global-nav" class="fixed top-0 left-0 right-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur-xl">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between gap-4">
+            <a href="#beranda" class="flex items-center space-x-2 flex-shrink-0">
+                <div class="w-2.5 h-2.5 rounded-full bg-slate-900"></div>
+                <span class="font-sans font-semibold text-sm tracking-tight text-slate-900">fattaah.dev</span>
+            </a>
+
+            <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-full border border-slate-200/70 overflow-x-auto max-w-[72vw] sm:max-w-none scrollbar-hide">
+                <a data-nav="beranda" href="#beranda" class="nav-anchor whitespace-nowrap px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-medium bg-white text-slate-900 shadow-sm transition-all">
+                    Beranda
+                </a>
+                <a data-nav="engineering" href="#engineering" class="nav-anchor whitespace-nowrap px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-medium text-slate-600 hover:text-slate-900 transition-all">
                     Engineering
-                </button>
-                <button onclick="switchView('artsy', '#fcfbf9')" id="nav-link-artsy" class="px-3 py-1.5 rounded-full text-xs font-medium text-slate-600 hover:text-slate-900 transition-all duration-300">
+                </a>
+                <a data-nav="achievement" href="#achievement" class="nav-anchor whitespace-nowrap px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-medium text-slate-600 hover:text-slate-900 transition-all">
+                    Pencapaian
+                </a>
+                <a data-nav="garis-tepi" href="#garis-tepi" class="nav-anchor whitespace-nowrap px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-medium text-slate-600 hover:text-slate-900 transition-all">
                     Garis Tepi
-                </button>
+                </a>
             </div>
         </div>
     </nav>
     <!-- ========================================================= -->
-    <!-- SECTION 1: MAIN LANDING PAGE / UTS PROFILE                -->
+    <!-- SECTION 1: BERANDA / PROFIL UTS                            -->
     <!-- ========================================================= -->
-    <div id="view-main" class="min-h-screen w-full relative overflow-hidden bg-[#f8fafc] pt-20">
+    <section id="beranda" class="min-h-screen w-full relative overflow-hidden bg-[#f8fafc] pt-20 scroll-mt-16">
         <div class="max-w-7xl mx-auto px-6 lg:px-16 w-full min-h-[calc(100vh-5rem)] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-20">
 
-            <!-- PROFILE CONTENT -->
             <div class="lg:col-span-7 xl:col-span-7 py-10 lg:py-14">
-
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-200 bg-white/80 backdrop-blur text-[10px] sm:text-xs font-mono uppercase tracking-[0.18em] text-slate-500 mb-5">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
-                    Computer Engineering // UNNES
+                    Teknik Komputer // Universitas Negeri Semarang
                 </div>
 
                 <h1 class="text-5xl md:text-6xl xl:text-7xl font-bold tracking-tight text-slate-900 leading-[0.95]">
@@ -69,110 +69,105 @@
                 </h1>
 
                 <p class="mt-5 text-slate-500 text-base md:text-lg font-light leading-relaxed max-w-2xl">
-                    Computer Engineering student exploring the intersection of intelligent systems,
-                    physical computing, engineering research, and the human side of technology.
+                    Mahasiswa Teknik Komputer yang tertarik pada pertemuan antara sistem cerdas,
+                    komputasi fisik, riset rekayasa, serta penerapan teknologi yang memberi manfaat nyata.
                 </p>
 
-                <!-- ACADEMIC IDENTITY -->
+                <!-- IDENTITAS AKADEMIK -->
                 <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 mt-7 max-w-2xl">
                     <div class="bg-white/80 backdrop-blur border border-slate-200 rounded-xl p-4 shadow-sm">
-                        <p class="text-[10px] font-mono uppercase tracking-widest text-slate-400">Student ID</p>
+                        <p class="text-[10px] font-mono uppercase tracking-widest text-slate-400">NIM</p>
                         <p class="text-sm md:text-base font-semibold text-slate-800 mt-1">2405110052</p>
                     </div>
 
                     <div class="bg-white/80 backdrop-blur border border-slate-200 rounded-xl p-4 shadow-sm">
-                        <p class="text-[10px] font-mono uppercase tracking-widest text-slate-400">Program</p>
-                        <p class="text-sm md:text-base font-semibold text-slate-800 mt-1">Computer Engineering</p>
+                        <p class="text-[10px] font-mono uppercase tracking-widest text-slate-400">Program Studi</p>
+                        <p class="text-sm md:text-base font-semibold text-slate-800 mt-1">Teknik Komputer</p>
                     </div>
 
                     <div class="bg-white/80 backdrop-blur border border-slate-200 rounded-xl p-4 shadow-sm col-span-2 sm:col-span-1">
-                        <p class="text-[10px] font-mono uppercase tracking-widest text-slate-400">Cohort</p>
+                        <p class="text-[10px] font-mono uppercase tracking-widest text-slate-400">Angkatan</p>
                         <p class="text-sm md:text-base font-semibold text-slate-800 mt-1">2024</p>
                     </div>
                 </div>
 
-                <!-- PERSONAL PROFILE -->
+                <!-- PROFIL PERSONAL -->
                 <div class="mt-7 max-w-2xl border-t border-slate-200 pt-6 space-y-5">
-
-                    <div class="grid grid-cols-1 sm:grid-cols-[145px_1fr] gap-1 sm:gap-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-1 sm:gap-5">
                         <p class="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-slate-400 pt-0.5">
-                            Beyond College
+                            Kesibukan
                         </p>
                         <p class="text-sm text-slate-600 leading-relaxed">
-                            Engineering projects and research, scientific competitions, public speaking,
-                            mentoring, technology development, and community-based educational activities.
-                            I have also experienced a research internship at BRIN in quantum physics and computing.
+                            Mengembangkan proyek engineering dan riset, mengikuti kompetisi ilmiah,
+                            public speaking dan mentoring, kegiatan organisasi serta pengabdian,
+                            termasuk pengalaman riset di BRIN.
                         </p>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-[145px_1fr] gap-1 sm:gap-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-1 sm:gap-5">
                         <p class="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-slate-400 pt-0.5">
-                            Aspiration
+                            Cita-cita
                         </p>
                         <p class="text-sm text-slate-600 leading-relaxed">
-                            To grow as a <span class="font-semibold text-slate-800">Mechatronics & Robotics Engineer</span>
-                            while pursuing a long-term path as a lecturer and researcher.
+                            Berkembang sebagai <span class="font-semibold text-slate-800">Mechatronics & Robotics Engineer</span>
+                            sekaligus menempuh jalur jangka panjang sebagai dosen dan peneliti.
                         </p>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-[145px_1fr] gap-1 sm:gap-5">
+                    <div class="grid grid-cols-1 sm:grid-cols-[150px_1fr] gap-1 sm:gap-5">
                         <p class="text-[10px] sm:text-xs font-mono uppercase tracking-widest text-slate-400 pt-0.5">
-                            Expert Direction
+                            Bidang Keahlian
                         </p>
                         <div>
                             <p class="text-sm text-slate-600 leading-relaxed">
-                                Building deep expertise in mechatronics, robotics, instrumentation,
-                                embedded control systems, avionics, and flight control computers.
+                                Ingin mendalami mekatronika, robotika, instrumentasi, embedded control system,
+                                avionik, serta flight control computer hingga tingkat profesional dan riset.
                             </p>
-
                             <div class="flex flex-wrap gap-2 mt-3 font-mono text-[10px] sm:text-[11px]">
-                                <span class="px-2.5 py-1 rounded-full bg-slate-900 text-white">#Mechatronics</span>
-                                <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200 text-slate-600">#Robotics</span>
-                                <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200 text-slate-600">#Instrumentation</span>
+                                <span class="px-2.5 py-1 rounded-full bg-slate-900 text-white">#Mekatronika</span>
+                                <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200 text-slate-600">#Robotika</span>
+                                <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200 text-slate-600">#Instrumentasi</span>
                                 <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200 text-slate-600">#EmbeddedControl</span>
-                                <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200 text-slate-600">#Avionics</span>
+                                <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200 text-slate-600">#Avionik</span>
                                 <span class="px-2.5 py-1 rounded-full bg-white border border-slate-200 text-slate-600">#FlightControlComputer</span>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- NAVIGATION CTA -->
-                <div class="flex flex-wrap gap-3 mt-7">
-                    <button
-                        onclick="switchView('engineering', '#0f1115')"
-                        class="px-5 py-2.5 bg-slate-900 text-white rounded-full text-xs font-medium hover:bg-slate-700 active:scale-95 transition-all duration-200 shadow-sm">
-                        Explore Engineering →
-                    </button>
+                <!-- CTA -->
+                <div class="flex flex-wrap gap-3 mt-8">
+                    <a href="#engineering"
+                       class="px-5 py-2.5 bg-slate-900 text-white rounded-full text-xs font-medium hover:bg-slate-700 active:scale-95 transition-all shadow-sm">
+                        Jelajahi Portofolio ↓
+                    </a>
 
-                    <button
-                        onclick="switchView('artsy', '#fcfbf9')"
-                        class="px-5 py-2.5 bg-white/80 border border-slate-300 text-slate-700 rounded-full text-xs font-medium hover:bg-white hover:border-slate-400 active:scale-95 transition-all duration-200">
-                        Explore Garis Tepi →
-                    </button>
+                    <a href="tugas_resume.pdf" target="_blank" rel="noopener"
+                       class="group px-5 py-2.5 bg-white border border-slate-300 text-slate-800 rounded-full text-xs font-semibold hover:border-slate-900 hover:shadow-md active:scale-95 transition-all inline-flex items-center gap-2">
+                        <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-red-50 text-red-600 text-[10px]">PDF</span>
+                        Buka Tugas Resume ↗
+                    </a>
                 </div>
 
                 <p class="mt-5 text-[10px] text-slate-400 font-mono uppercase tracking-[0.16em]">
-                    Logic on one side, human stories on the other.
+                    Engineering, riset, pengalaman, dan catatan di tepi garis.
                 </p>
             </div>
         </div>
 
-        <!-- ORIGINAL CHIBI / VISUAL IDENTITY -->
         <div class="hidden lg:flex absolute right-0 bottom-0 h-[72vh] xl:h-[86vh] items-end justify-end z-10 pointer-events-none select-none overflow-hidden">
             <img 
                 id="chibi-pixel-interactive"
                 src="assets/img/chibi-kanan.webp" 
-                alt="Chibi Pixel Self" 
+                alt="Ilustrasi Fattaah Garis Husodo" 
                 class="h-full w-auto object-contain object-right-bottom image-render-pixelated drop-shadow-[-15px_15px_30px_rgba(0,0,0,0.06)]"
             />
         </div>
 
-        <!-- subtle decorative grid -->
         <div class="absolute inset-0 z-0 pointer-events-none opacity-[0.025]"
              style="background-image: linear-gradient(to right, #0f172a 1px, transparent 1px), linear-gradient(to bottom, #0f172a 1px, transparent 1px); background-size: 32px 32px;">
         </div>
-    </div>
+    </section>
 
     <!-- ========================================================= -->
     <!-- SECTION 2: ENGINEERING (CYBER-LAB / DARK MODE)            -->
@@ -180,7 +175,7 @@
     <!-- PENYESUAIAN: ID Utama diubah menjadi view-engineering -->
 
 
-    <div id="view-engineering" class="hidden min-h-screen pt-24 pb-16 font-sans bg-[#0f172a] text-slate-200">
+    <section id="engineering" class="min-h-screen pt-24 pb-20 font-sans bg-[#0f172a] text-slate-200 scroll-mt-16">
         <div class="max-w-5xl mx-auto px-6 space-y-20">
             
 
@@ -188,21 +183,21 @@
             <section id="headline" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-6 space-y-6">
                     <div class="inline-flex items-center space-x-2 bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 px-3 py-1 rounded-full text-xs font-mono">
-                        <span>FEATURED PROJECT // HEADLINE</span>
+                        <span>PROYEK UNGGULAN // SOROTAN</span>
                     </div>
                     <h2 class="text-4xl font-bold tracking-tight text-white leading-tight">
-                        Engineer Laboratory
+                        Laboratorium Rekayasa
                     </h2>
                     <p class="text-slate-400 text-base leading-relaxed font-sans">
                         Pengembangan sistem avionik roket model tingkat lanjut dengan integrasi sensor real-time, estimasi orientasi berbasis filter kalman, dan sistem kendali aktuator aktif. Dirancang untuk validasi data aerodinamika secara empiris menggunakan arsitektur multithreading FreeRTOS pada ESP32.
                     </p>
                     <div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-800 font-mono text-xs text-slate-400">
                         <div>
-                            <span class="text-cyan-400 block font-bold mb-1">HARDWARE STACK:</span>
+                            <span class="text-cyan-400 block font-bold mb-1">PERANGKAT KERAS:</span>
                             ESP32, MPU6050, Custom PCB Design
                         </div>
                         <div>
-                            <span class="text-cyan-400 block font-bold mb-1">FIRMWARE CORE:</span>
+                            <span class="text-cyan-400 block font-bold mb-1">INTI FIRMWARE:</span>
                             FreeRTOS (Multi-tasking API), C++
                         </div>
                     </div>
@@ -229,7 +224,7 @@
             <section class="space-y-8">
                 <div class="flex items-center gap-3 border-b border-slate-800 pb-2">
                     <span class="text-emerald-400 font-mono text-sm">[01]</span>
-                    <h2 class="text-lg font-semibold uppercase tracking-wider text-white">Embedded Systems & Robotics</h2>
+                    <h2 class="text-lg font-semibold uppercase tracking-wider text-white">Sistem Embedded & Robotika</h2>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -338,7 +333,7 @@
             <section class="space-y-8">
                 <div class="flex items-center gap-3 border-b border-slate-800 pb-2">
                     <span class="text-cyan-400 font-mono text-sm">[3D]</span>
-                    <h2 class="text-lg font-semibold uppercase tracking-wider text-white">Competition CAD & Asset Showcase</h2>
+                    <h2 class="text-lg font-semibold uppercase tracking-wider text-white">Galeri CAD & Aset Kompetisi</h2>
                 </div>
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -390,7 +385,7 @@
             <section class="space-y-8">
                 <div class="flex items-center gap-3 border-b border-slate-800 pb-2">
                     <span class="text-amber-400 font-mono text-sm">[02]</span>
-                    <h2 class="text-lg font-semibold uppercase tracking-wider text-white">Full-Stack Web Development</h2>
+                    <h2 class="text-lg font-semibold uppercase tracking-wider text-white">Pengembangan Web Full-Stack</h2>
                 </div>
                 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -466,7 +461,7 @@
             <section class="space-y-8">
                 <div class="flex items-center gap-3 border-b border-slate-800 pb-2">
                     <span class="text-purple-400 font-mono text-sm">[03]</span>
-                    <h2 class="text-lg font-semibold uppercase tracking-wider text-white">Artificial Intelligence & Research</h2>
+                    <h2 class="text-lg font-semibold uppercase tracking-wider text-white">Kecerdasan Buatan & Riset</h2>
                 </div>
                 
                 <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-purple-500/40 transition-all duration-300">
@@ -489,7 +484,197 @@
             </section>
 
         </div>
-    </div>
+    </sectio
+    <!-- ========================================================= -->
+    <!-- SECTION 3: PENCAPAIAN & PENGALAMAN                       -->
+    <!-- ========================================================= -->
+    <section id="achievement" class="bg-[#f4f6f8] text-slate-900 py-24 scroll-mt-16 border-y border-slate-200">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-3xl mb-14">
+                <div class="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.2em] uppercase text-slate-500 border border-slate-200 bg-white px-3 py-1 rounded-full">
+                    Rekam Jejak // 2023—2026
+                </div>
+                <h2 class="mt-5 text-4xl md:text-5xl font-bold tracking-tight text-slate-900">
+                    Pencapaian & Pengalaman
+                </h2>
+                <p class="mt-4 text-slate-600 leading-relaxed">
+                    Beberapa kompetisi, riset, internship, proyek teknik, organisasi, dan kegiatan pengembangan
+                    yang membentuk perjalanan akademik serta profesional saya.
+                </p>
+            </div>
+
+            <!-- PRESTASI -->
+            <div class="space-y-6 mb-16">
+                <div class="flex items-center gap-3 border-b border-slate-300 pb-2">
+                    <span class="font-mono text-xs text-amber-700">[01]</span>
+                    <h3 class="text-sm font-bold uppercase tracking-wider">Prestasi Kompetisi</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-amber-700">September 2026</span>
+                        <h4 class="mt-2 font-bold text-lg">Juara 1 GEMASTE</h4>
+                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">Kompetisi Esai Nasional GEMASTE yang diselenggarakan HIMPROTE FT UNNES.</p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-sky-700">2026</span>
+                        <h4 class="mt-2 font-bold text-lg">Silver Medal — Technology</h4>
+                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">2nd International Student Summit, Sentosa Foundation & Universiti Sains Islam Malaysia, Kuala Lumpur.</p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-orange-700">2026</span>
+                        <h4 class="mt-2 font-bold text-lg">Bronze Medal — Environment</h4>
+                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">2nd International Student Summit, Sentosa Foundation & Universiti Sains Islam Malaysia, Kuala Lumpur.</p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-slate-500">2025</span>
+                        <h4 class="mt-2 font-bold text-lg">Juara 2 KTI & Best Poster</h4>
+                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">Piala Dekan 2025, Fakultas Teknik, Universitas Negeri Semarang.</p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-slate-500">2025</span>
+                        <h4 class="mt-2 font-bold text-lg">Best Presentation — ICIBS</h4>
+                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">International Conference of Innovative Biofrontiers Students, Universitas Brawijaya.</p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-slate-500">2025</span>
+                        <h4 class="mt-2 font-bold text-lg">Juara 2 Esai Nasional 16 HAKTP</h4>
+                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">Kompetisi esai nasional oleh Satgas PPK Universitas Negeri Semarang.</p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- RISET & PAPER -->
+            <div class="space-y-6 mb-16">
+                <div class="flex items-center gap-3 border-b border-slate-300 pb-2">
+                    <span class="font-mono text-xs text-purple-700">[02]</span>
+                    <h3 class="text-sm font-bold uppercase tracking-wider">Riset, Paper & Proyek Akademik</h3>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                    <article class="bg-slate-900 text-slate-100 rounded-2xl p-6 border border-slate-800">
+                        <span class="text-[10px] font-mono text-purple-300 uppercase tracking-wider">Deep Learning & Computer Vision // 2026</span>
+                        <h4 class="mt-2 text-xl font-bold">Melanoma Detection Using Transfer Learning</h4>
+                        <p class="mt-3 text-sm text-slate-400 leading-relaxed">
+                            Mengembangkan dan mengevaluasi ResNet50, EfficientNetB3, dan MobileNetV2 untuk klasifikasi citra medis,
+                            mencakup preprocessing dataset, transfer learning, fine-tuning, dan analisis performa model.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-4 text-[10px] font-mono text-slate-400">
+                            <span>#DeepLearning</span><span>#ComputerVision</span><span>#TransferLearning</span><span>#MedicalAI</span>
+                        </div>
+                    </article>
+
+                    <article class="bg-slate-900 text-slate-100 rounded-2xl p-6 border border-slate-800">
+                        <span class="text-[10px] font-mono text-emerald-300 uppercase tracking-wider">Embedded Systems & Control // 2026</span>
+                        <h4 class="mt-2 text-xl font-bold">Embedded PID–Kalman & Face Tracking</h4>
+                        <p class="mt-3 text-sm text-slate-400 leading-relaxed">
+                            Mengimplementasikan arsitektur PID–Kalman untuk filtering dan stabilisasi sensor secara real-time,
+                            lalu mengintegrasikan Computer Vision dan ESP32 untuk sistem pan-tilt tracking berbasis kontrol PID.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-4 text-[10px] font-mono text-slate-400">
+                            <span>#PID</span><span>#KalmanFilter</span><span>#ESP32</span><span>#EdgeVision</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- INTERNSHIP -->
+            <div class="space-y-6 mb-16">
+                <div class="flex items-center gap-3 border-b border-slate-300 pb-2">
+                    <span class="font-mono text-xs text-cyan-700">[03]</span>
+                    <h3 class="text-sm font-bold uppercase tracking-wider">Internship & Pengalaman Teknis</h3>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                    <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                        <p class="text-[10px] font-mono uppercase tracking-wider text-cyan-700">Juli—Agustus 2026</p>
+                        <h4 class="mt-2 text-xl font-bold">Quantum Physics Research Intern — BRIN</h4>
+                        <p class="text-xs text-slate-400 mt-1">Kawasan Sains dan Teknologi B.J. Habibie, Tangerang Selatan</p>
+                        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                            Mengimplementasikan Quantum Phase Estimation untuk H₂ dan membandingkannya dengan VQE,
+                            serta membangun dan menganalisis rangkaian QFT/QFT†, controlled phase rotation, SWAP,
+                            Draper/QFT adder, phase estimation, dan algoritma Shor.
+                        </p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                        <p class="text-[10px] font-mono uppercase tracking-wider text-cyan-700">Januari—Maret 2023</p>
+                        <h4 class="mt-2 text-xl font-bold">Network Engineer Intern — KLHK</h4>
+                        <p class="text-xs text-slate-400 mt-1">Kementerian Lingkungan Hidup & Kehutanan</p>
+                        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                            Menangani instalasi dan pemeliharaan perangkat jaringan serta kabel antarbagian,
+                            troubleshooting perangkat lunak jaringan, dan mendukung pemeliharaan website.
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- ORGANISASI -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-3 border-b border-slate-300 pb-2">
+                    <span class="font-mono text-xs text-rose-700">[04]</span>
+                    <h3 class="text-sm font-bold uppercase tracking-wider">Organisasi, Tim Teknik & Pengabdian</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5">
+                        <div class="flex justify-between gap-4">
+                            <h4 class="font-bold">Software Staff — SUVIFOR UNNES</h4>
+                            <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2024—2026</span>
+                        </div>
+                        <p class="mt-2 text-sm text-slate-600">Mengembangkan dan menjaga sistem embedded flight control untuk racing plane serta mendukung integrasi software–hardware.</p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5">
+                        <div class="flex justify-between gap-4">
+                            <h4 class="font-bold">Ketua Departemen Pendidikan & Pengembangan Potensi Siswa</h4>
+                            <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025—2026</span>
+                        </div>
+                        <p class="mt-2 text-sm text-slate-600">Memimpin program akademik, soft skills, leadership, workshop, mentoring, dan talk show yang menjangkau lebih dari 100 mahasiswa.</p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5">
+                        <div class="flex justify-between gap-4">
+                            <h4 class="font-bold">Ketua Pelaksana Sekolah YES FT 2025</h4>
+                            <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025</span>
+                        </div>
+                        <p class="mt-2 text-sm text-slate-600">Mengkoordinasikan program pengembangan mahasiswa lintas fakultas yang melibatkan lebih dari 200 peserta.</p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5">
+                        <div class="flex justify-between gap-4">
+                            <h4 class="font-bold">Electrical Staff — PANDAWA TEAM UNNES</h4>
+                            <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025</span>
+                        </div>
+                        <p class="mt-2 text-sm text-slate-600">Berkontribusi dalam sistem kelistrikan kendaraan hemat energi untuk persiapan Kontes Mobil Hemat Energi Indonesia.</p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5">
+                        <div class="flex justify-between gap-4">
+                            <h4 class="font-bold">Echoes of Joy — AIESEC in Trisakti</h4>
+                            <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025</span>
+                        </div>
+                        <p class="mt-2 text-sm text-slate-600">Mengikuti proyek sosial SDG 4 dengan kegiatan pengajaran anak usia dini dan sekolah jalanan di Jakarta.</p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5">
+                        <div class="flex justify-between gap-4">
+                            <h4 class="font-bold">Volunteer & Mentor STEM</h4>
+                            <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025—2026</span>
+                        </div>
+                        <p class="mt-2 text-sm text-slate-600">Terlibat dalam Peduly Jakarta, RoboSchool SUVIFOR, serta mentoring IoT Smart Farming bagi siswa sekolah menengah.</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+n>
 
     <!-- ========================================================= -->
     <!-- SECTION 3: TEPI GARIS (EDITORIAL / HUMAN & ARTSY LOOK)   -->
@@ -497,20 +682,20 @@
     <!-- ========================================================= -->
     <!-- SECTION 3: TEPI GARIS (EDITORIAL / HUMAN & ARTSY LOOK)   -->
     <!-- ========================================================= -->
-    <div id="view-artsy" class="hidden min-h-screen pt-24 pb-16 font-serif bg-[#fcfbf9] text-[#1c1b1a]">
+    <section id="garis-tepi" class="min-h-screen pt-24 pb-20 font-serif bg-[#fcfbf9] text-[#1c1b1a] scroll-mt-16">
         <div class="max-w-4xl mx-auto px-6 space-y-24">
             
             <!-- Tepi Garis Editorial Header -->
             <div class="border-b border-stone-200 pb-8 text-center md:text-left">
                 <h1 class="text-4xl font-light text-stone-900 tracking-tight">Tepi Garis</h1>
-                <p class="text-sm italic text-stone-500 mt-2">A space dedicated to human experiences, visual documentation, and written memories at the edge of logic.</p>
+                <p class="text-sm italic text-stone-500 mt-2">Ruang untuk pengalaman manusia, dokumentasi visual, dan catatan tertulis di tepi logika.</p>
             </div>
 
             <!-- SUBSECTION 1: THE INTELLECTUAL LIBRARY -->
             <!-- SUBSECTION 1: THE INTELLECTUAL LIBRARY -->
             <section id="library" class="space-y-8">
                 <div class="border-b border-stone-200 pb-2">
-                    <h2 class="font-sans text-xs uppercase tracking-widest text-amber-800 font-semibold">01 / The Intellectual Library</h2>
+                    <h2 class="font-sans text-xs uppercase tracking-widest text-amber-800 font-semibold">01 / Perpustakaan Personal</h2>
                 </div>
                 
                 <!-- 1. GRID UNTUK CURRENT READS (TOP 3 BUKU) -->
@@ -528,7 +713,7 @@
                                 <p class="text-xs text-stone-500 font-sans">Pramoedya Ananta Toer</p>
                             </div>
                             <div class="space-y-1 pt-2 font-sans text-[11px]">
-                                <div class="text-emerald-700 font-medium">Score: 5.0 // Current Read</div>
+                                <div class="text-emerald-700 font-medium">Nilai: 5.0 // Sedang Dibaca</div>
                                 <p class="text-stone-400 leading-relaxed line-clamp-2">Kisah heroisme Minke menghadapi feodalisme dan kolonialisme.</p>
                             </div>
                         </div>
@@ -546,7 +731,7 @@
                                 <p class="text-xs text-stone-500 font-sans">Leila S. Chudori</p>
                             </div>
                             <div class="space-y-1 pt-2 font-sans text-[11px]">
-                                <div class="text-emerald-700 font-medium">Score: 4.9 // Current Read</div>
+                                <div class="text-emerald-700 font-medium">Nilai: 4.9 // Sedang Dibaca</div>
                                 <p class="text-stone-400 leading-relaxed line-clamp-2">Catatan kelam perjuangan aktivis pra-reformasi yang penuh emosi.</p>
                             </div>
                         </div>
@@ -564,7 +749,7 @@
                                 <p class="text-xs text-stone-500 font-sans">Soe Hok Gie</p>
                             </div>
                             <div class="space-y-1 pt-2 font-sans text-[11px]">
-                                <div class="text-emerald-700 font-medium">Score: 5.0 // Current Read</div>
+                                <div class="text-emerald-700 font-medium">Nilai: 5.0 // Sedang Dibaca</div>
                                 <p class="text-stone-400 leading-relaxed line-clamp-2">Buku harian reflektif seorang intelektual muda yang jujur.</p>
                             </div>
                         </div>
@@ -581,7 +766,7 @@
                                 <p class="text-xs text-stone-500 font-sans">Tan Malaka</p>
                             </div>
                             <div class="space-y-1 pt-2 font-sans text-[11px]">
-                                <div class="text-emerald-700 font-medium">Score: 4.9 // Current Read</div>
+                                <div class="text-emerald-700 font-medium">Nilai: 4.9 // Sedang Dibaca</div>
                                 <p class="text-stone-400 leading-relaxed line-clamp-2">Memoar legendaris perjuangan dan pelarian politik Tan Malaka antar penjara dunia.</p>
                             </div>
                         </div>
@@ -764,7 +949,7 @@
                 <!-- CONTROLLER INTERACTION TRIGGER -->
                 <div class="text-center pt-4">
                     <button id="btn-toggle-library" onclick="toggleLibrary()" class="font-sans text-xs font-medium uppercase tracking-widest text-amber-950 border border-stone-300 bg-stone-50 px-6 py-2.5 rounded-full hover:bg-stone-100 active:scale-95 transition-all duration-150 shadow-sm">
-                        Show More
+                        Tampilkan Lebih Banyak
                     </button>
                 </div>
             </section>
@@ -772,57 +957,57 @@
             <!-- SUBSECTION 2: ESSAYS & REFLECTIONS (MIDDLE SECTION) -->
             <section class="space-y-10">
                 <div class="border-b border-stone-200 pb-2">
-                    <h2 class="font-sans text-xs uppercase tracking-widest text-amber-800 font-semibold">02 / Essays & Reflections</h2>
+                    <h2 class="font-sans text-xs uppercase tracking-widest text-amber-800 font-semibold">02 / Esai & Refleksi</h2>
                 </div>
                 
                 <article class="space-y-3 group cursor-pointer max-w-3xl">
-                    <span class="font-sans text-[11px] text-stone-400 uppercase tracking-wider">HCI & Digital Philosophy</span>
+                    <span class="font-sans text-[11px] text-stone-400 uppercase tracking-wider">HCI & Filosofi Digital</span>
                     <h3 class="text-2xl font-bold text-stone-900 group-hover:text-amber-800 transition-colors leading-tight">Menangkap Sunyi di Antara Deru Logika</h3>
                     <p class="text-stone-600 leading-relaxed font-light text-sm font-serif">
                         Bagaimana mengalihkan fokus dari layar kode biner menuju bidikan lensa mekanis kamera membantu saya memahami konsep Human-Computer Interaction. Fotografi mengajarkan saya bahwa di balik sistem elektronika yang kaku, ada manusia yang mendambakan antarmuka yang intuitif, humanis, dan bernyawa.
                     </p>
-                    <div class="font-sans text-xs text-stone-400 pt-1">June 2026 • 6 min read</div>
+                    <div class="font-sans text-xs text-stone-400 pt-1">Juni 2026 • 6 menit baca</div>
                 </article>
 
                 <article class="space-y-3 group cursor-pointer max-w-3xl">
-                    <span class="font-sans text-[11px] text-stone-400 uppercase tracking-wider">Systems Architecture</span>
+                    <span class="font-sans text-[11px] text-stone-400 uppercase tracking-wider">Arsitektur Sistem</span>
                     <h3 class="text-2xl font-bold text-stone-900 group-hover:text-amber-800 transition-colors leading-tight">Membaca Kode Alam Lewat Kacamata Kendali</h3>
                     <p class="text-stone-600 leading-relaxed font-light text-sm font-serif">
                         Sebuah catatan pinggir mengenai analogi antara Closed-Loop Feedback Systems di bidang teknik elektro dengan bagaimana psikologi manusia merespons kegagalan dan membentuk kebiasaan baru melalui umpan balik lingkungan sekitar di batas tepi garis kenyamanan.
                     </p>
-                    <div class="font-sans text-xs text-stone-400 pt-1">March 2026 • 4 min read</div>
+                    <div class="font-sans text-xs text-stone-400 pt-1">Maret 2026 • 4 menit baca</div>
                 </article>
             </section>
 
             <!-- SUBSECTION 3: VISUAL DIARY / PHOTOGRAPHY (BOTTOM SECTION) -->
             <section id="creative" class="space-y-6">
                 <div class="border-b border-stone-200 pb-2">
-                    <h2 class="font-sans text-xs uppercase tracking-widest text-amber-800 font-semibold">03 / Visual Diary (Street Photography)</h2>
+                    <h2 class="font-sans text-xs uppercase tracking-widest text-amber-800 font-semibold">03 / Catatan Visual (Fotografi Jalanan)</h2>
                 </div>
                 <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
                     <div class="space-y-2 group">
                         <div class="aspect-[4/3] bg-stone-200 overflow-hidden rounded-lg border border-stone-200">
                             <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=600&q=80" alt="Jakarta Skyline" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
                         </div>
-                        <p class="font-sans text-xs text-stone-500 italic px-1">Intersections of Shadows — Jakarta</p>
+                        <p class="font-sans text-xs text-stone-500 italic px-1">Persimpangan Bayangan — Jakarta</p>
                     </div>
                     <div class="space-y-2 group">
                         <div class="aspect-[4/3] bg-stone-200 overflow-hidden rounded-lg border border-stone-200">
                             <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=600&q=80" alt="Bandung Street" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
                         </div>
-                        <p class="font-sans text-xs text-stone-500 italic px-1">Symphony of Crowds — Bandung</p>
+                        <p class="font-sans text-xs text-stone-500 italic px-1">Simfoni Keramaian — Bandung</p>
                     </div>
                     <div class="space-y-2 group">
                         <div class="aspect-[4/3] bg-stone-200 overflow-hidden rounded-lg border border-stone-200">
                             <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=600&q=80" alt="Nature Geometry" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
                         </div>
-                        <p class="font-sans text-xs text-stone-500 italic px-1">Organic Geometry — Nature Study</p>
+                        <p class="font-sans text-xs text-stone-500 italic px-1">Geometri Organik — Studi Alam</p>
                     </div>
                 </div>
             </section>
 
         </div>
-    </div>
+    </section>
 
     <!-- ========================================================= -->
     <!-- JAVASCRIPT LOGIC FOR ACCORDION INTERACTION                -->
@@ -836,12 +1021,12 @@
                 // Tampilkan sisa buku dengan grid di mobile maupun desktop secara konsisten
                 extendedLibrary.classList.remove('hidden');
                 extendedLibrary.classList.add('grid');
-                toggleBtn.innerText = "Show Less";
+                toggleBtn.innerText = "Tampilkan Lebih Sedikit";
             } else {
                 // Sembunyikan kembali secara total
                 extendedLibrary.classList.add('hidden');
                 extendedLibrary.classList.remove('grid');
-                toggleBtn.innerText = "Show More";
+                toggleBtn.innerText = "Tampilkan Lebih Banyak";
                 
                 // Kembalikan view fokus ke bagian library utama secara smooth
                 document.getElementById('library').scrollIntoView({ behavior: 'smooth' });
@@ -854,96 +1039,11 @@
     <!-- GLOBAL FOOTER                                             -->
     <!-- ========================================================= -->
     <footer id="global-footer" class="border-t border-slate-200 bg-white py-8 text-center font-sans text-xs text-slate-400 transition-all duration-500">
-        &copy; 2026 // FATTAAH GARIS HUSODO. ALL SYSTEMS OPERATIONAL.
+        &copy; 2026 // FATTAAH GARIS HUSODO. SISTEM BERJALAN NORMAL.
     </footer>
 
 
-    <!-- ========================================================= -->
-    <!-- JAVASCRIPT STATE CONTROLLER CORE                          -->
-    <!-- ========================================================= -->
-    <script>
-        function switchView(targetView, targetBgColor) {
-            const overlay = document.getElementById('transition-overlay');
-            const body = document.getElementById('app-body');
-            const nav = document.getElementById('global-nav');
-            const navBrand = document.getElementById('nav-brand');
-            const navIndicator = document.getElementById('nav-indicator');
-            const footer = document.getElementById('global-footer');
-            const navWrapper = document.getElementById('nav-wrapper');
 
-            const views = {
-                main: document.getElementById('view-main'),
-                engineering: document.getElementById('view-engineering'),
-                artsy: document.getElementById('view-artsy')
-            };
-
-            const navLinks = {
-                main: document.getElementById('nav-link-main'),
-                engineering: document.getElementById('nav-link-engineering'),
-                artsy: document.getElementById('nav-link-artsy')
-            };
-
-            // Berikan penutup layar hitam tipis berdurasi cepat (150ms)
-            overlay.style.opacity = '1';
-
-            setTimeout(() => {
-                // Tukar tampilan konten internal dokumen
-                Object.keys(views).forEach(key => views[key].classList.add('hidden'));
-                views[targetView].classList.remove('hidden');
-
-                body.style.backgroundColor = targetBgColor;
-                window.scrollTo(0, 0);
-
-                // Dinamisasi Tema Komponen Navigasi & Footer Global
-                if (targetView === 'engineering') {
-                    nav.className = "fixed top-0 left-0 right-0 z-40 border-b border-slate-800 bg-[#0f1115]/90 backdrop-blur";
-                    navBrand.className = "font-mono text-sm tracking-wider font-bold text-white";
-                    navIndicator.className = "w-2.5 h-2.5 rounded-full bg-cyan-400 animate-pulse";
-                    navWrapper.className = "flex items-center space-x-2 bg-slate-900 p-1 rounded-full border border-slate-800";
-                    footer.className = "border-t border-slate-900 bg-[#0b0c0f] py-8 text-center font-mono text-xs text-slate-600";
-                } else if (targetView === 'artsy') {
-                    nav.className = "fixed top-0 left-0 right-0 z-40 border-b border-stone-200 bg-[#fcfbf9]/90 backdrop-blur";
-                    navBrand.className = "font-serif text-sm tracking-tight font-bold text-stone-900";
-                    navIndicator.className = "w-2.5 h-2.5 rounded-full bg-amber-700";
-                    navWrapper.className = "flex items-center space-x-2 bg-stone-200/60 p-1 rounded-full border border-stone-300/40";
-                    footer.className = "border-t border-stone-200 bg-[#f5f4f0] py-8 text-center font-serif text-xs text-stone-500";
-                } else {
-                    nav.className = "fixed top-0 left-0 right-0 z-40 border-b border-slate-200 bg-white/90 backdrop-blur";
-                    navBrand.className = "font-sans font-medium text-sm tracking-tight text-slate-900";
-                    navIndicator.className = "w-2.5 h-2.5 rounded-full bg-slate-900";
-                    navWrapper.className = "flex items-center space-x-2 bg-slate-100 p-1 rounded-full border border-slate-200/60";
-                    footer.className = "border-t border-slate-200 bg-white py-8 text-center font-sans text-xs text-slate-400";
-                }
-
-                // Mutasi Style Tombol Navigasi Aktif vs Pasif
-                Object.keys(navLinks).forEach(key => {
-                    if (key === targetView) {
-                        if (targetView === 'engineering') {
-                            navLinks[key].className = "px-3 py-1.5 rounded-full text-xs font-mono bg-cyan-500 text-black font-bold shadow-sm";
-                        } else if (targetView === 'artsy') {
-                            navLinks[key].className = "px-3 py-1.5 rounded-full text-xs font-serif bg-amber-800 text-white font-medium shadow-sm";
-                        } else {
-                            navLinks[key].className = "px-3 py-1.5 rounded-full text-xs font-sans bg-slate-900 text-white font-medium shadow-sm";
-                        }
-                    } else {
-                        if (targetView === 'engineering') {
-                            navLinks[key].className = "px-3 py-1.5 rounded-full text-xs font-mono text-slate-500 hover:text-white transition-all duration-200";
-                        } else if (targetView === 'artsy') {
-                            navLinks[key].className = "px-3 py-1.5 rounded-full text-xs font-serif text-stone-400 hover:text-stone-900 transition-all duration-200";
-                        } else {
-                            navLinks[key].className = "px-3 py-1.5 rounded-full text-xs font-sans text-slate-500 hover:text-slate-900 transition-all duration-200";
-                        }
-                    }
-                });
-
-            }, 150);
-
-            // Buka kembali tirai transisi secara instan
-            setTimeout(() => {
-                overlay.style.opacity = '0';
-            }, 170);
-        }
-    </script>
 
 <script>
         document.addEventListener("DOMContentLoaded", () => {
@@ -965,5 +1065,44 @@
             }, 300); 
         });
     </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const sections = ["beranda", "engineering", "achievement", "garis-tepi"]
+                .map(id => document.getElementById(id))
+                .filter(Boolean);
+
+            const navLinks = [...document.querySelectorAll(".nav-anchor")];
+
+            const setActive = (id) => {
+                navLinks.forEach(link => {
+                    const active = link.dataset.nav === id;
+                    link.classList.toggle("bg-white", active);
+                    link.classList.toggle("text-slate-900", active);
+                    link.classList.toggle("shadow-sm", active);
+                    link.classList.toggle("font-semibold", active);
+                    link.classList.toggle("text-slate-600", !active);
+                });
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                const visible = entries
+                    .filter(entry => entry.isIntersecting)
+                    .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
+
+                if (visible) setActive(visible.target.id);
+            }, {
+                rootMargin: "-20% 0px -65% 0px",
+                threshold: [0.05, 0.2, 0.4]
+            });
+
+            sections.forEach(section => observer.observe(section));
+
+            navLinks.forEach(link => {
+                link.addEventListener("click", () => setActive(link.dataset.nav));
+            });
+        });
+    </script>
+
 </body>
 </html>
