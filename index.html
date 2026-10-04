@@ -8,17 +8,67 @@
     <!-- Fonts Setup -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <!-- Script untuk 3D Model Viewer Google -->
     <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.5.0/model-viewer.min.js"></script>
 
     <style>
-        .font-sans { font-family: 'Inter', sans-serif; }
-        .font-mono { font-family: 'JetBrains Mono', monospace; }
-        .font-serif { font-family: 'Playfair Display', serif; }
+        html { scroll-behavior: smooth; }
+        body, .font-sans, .font-mono, .font-serif { font-family: 'Inter', sans-serif !important; }
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
+        .section-transition {
+            position: relative;
+        }
+        .section-transition::before {
+            content: "";
+            position: absolute;
+            top: -72px;
+            left: 0;
+            right: 0;
+            height: 72px;
+            pointer-events: none;
+            background: linear-gradient(to bottom, rgba(248,250,252,0), currentColor);
+            opacity: 0;
+        }
+        .image-placeholder {
+            aspect-ratio: 16 / 9;
+            border-radius: 0.9rem;
+            border: 1px dashed rgba(100,116,139,.35);
+            background:
+                linear-gradient(135deg, rgba(148,163,184,.08), rgba(148,163,184,.02)),
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(148,163,184,.06),
+                    rgba(148,163,184,.06) 8px,
+                    transparent 8px,
+                    transparent 16px
+                );
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: rgb(148 163 184);
+            font-size: .68rem;
+            font-weight: 600;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            overflow: hidden;
+        }
+        .image-placeholder.dark {
+            border-color: rgba(148,163,184,.22);
+            background:
+                linear-gradient(135deg, rgba(148,163,184,.06), rgba(15,23,42,.1)),
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(148,163,184,.04),
+                    rgba(148,163,184,.04) 8px,
+                    transparent 8px,
+                    transparent 16px
+                );
+            color: rgb(100 116 139);
+        }
     </style>
 </head>
 <body id="app-body" class="bg-[#f8fafc] text-slate-900 min-h-screen relative transition-colors duration-500 font-sans antialiased">
@@ -40,11 +90,11 @@
                 <a data-nav="beranda" href="#beranda" class="nav-anchor whitespace-nowrap px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-medium bg-white text-slate-900 shadow-sm transition-all">
                     Beranda
                 </a>
-                <a data-nav="engineering" href="#engineering" class="nav-anchor whitespace-nowrap px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-medium text-slate-600 hover:text-slate-900 transition-all">
-                    Engineering
-                </a>
                 <a data-nav="achievement" href="#achievement" class="nav-anchor whitespace-nowrap px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-medium text-slate-600 hover:text-slate-900 transition-all">
                     Pencapaian
+                </a>
+                <a data-nav="engineering" href="#engineering" class="nav-anchor whitespace-nowrap px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-medium text-slate-600 hover:text-slate-900 transition-all">
+                    Engineering
                 </a>
                 <a data-nav="garis-tepi" href="#garis-tepi" class="nav-anchor whitespace-nowrap px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-medium text-slate-600 hover:text-slate-900 transition-all">
                     Garis Tepi
@@ -55,7 +105,7 @@
     <!-- ========================================================= -->
     <!-- SECTION 1: BERANDA / PROFIL UTS                            -->
     <!-- ========================================================= -->
-    <section id="beranda" class="min-h-screen w-full relative overflow-hidden bg-[#f8fafc] pt-20 scroll-mt-16">
+    <section id="beranda" class="min-h-screen w-full relative overflow-hidden pt-20 scroll-mt-16 bg-[linear-gradient(180deg,#f8fafc_0%,#f8fafc_82%,#f4f6f8_100%)]">
         <div class="max-w-7xl mx-auto px-6 lg:px-16 w-full min-h-[calc(100vh-5rem)] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-20">
 
             <div class="lg:col-span-7 xl:col-span-7 py-10 lg:py-14">
@@ -139,14 +189,13 @@
                 <div class="flex flex-wrap gap-3 mt-8">
                     <a href="#engineering"
                        class="px-5 py-2.5 bg-slate-900 text-white rounded-full text-xs font-medium hover:bg-slate-700 active:scale-95 transition-all shadow-sm">
-                        Jelajahi Portofolio ↓
+                        Jelajahi Portofolio
                     </a>
 
                     <a href="tugas_resume.pdf" target="_blank" rel="noopener"
-                       class="group px-5 py-2.5 bg-white border border-slate-300 text-slate-800 rounded-full text-xs font-semibold hover:border-slate-900 hover:shadow-md active:scale-95 transition-all inline-flex items-center gap-2">
-                        <span class="inline-flex items-center justify-center w-5 h-5 rounded-full bg-red-50 text-red-600 text-[10px]">PDF</span>
-                        Buka Tugas Resume ↗
-                    </a>
+       class="px-5 py-2.5 bg-white border border-slate-300 text-slate-800 rounded-full text-xs font-semibold hover:border-slate-900 hover:shadow-md active:scale-95 transition-all inline-flex items-center">
+        Buka Tugas Resume
+    </a>
                 </div>
 
                 <p class="mt-5 text-[10px] text-slate-400 font-mono uppercase tracking-[0.16em]">
@@ -169,13 +218,209 @@
         </div>
     </section>
 
-    <!-- ========================================================= -->
-    <!-- SECTION 2: ENGINEERING (CYBER-LAB / DARK MODE)            -->
-    <!-- ========================================================= -->
-    <!-- PENYESUAIAN: ID Utama diubah menjadi view-engineering -->
+<section id="achievement" class="text-slate-900 py-24 scroll-mt-16 bg-[linear-gradient(180deg,#f4f6f8_0%,#f7f8fa_88%,#111827_100%)]">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="max-w-3xl mb-14">
+                <div class="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.2em] uppercase text-slate-500 border border-slate-200 bg-white px-3 py-1 rounded-full">
+                    Rekam Jejak // 2023—2026
+                </div>
+                <h2 class="mt-5 text-4xl md:text-5xl font-bold tracking-tight text-slate-900">
+                    Pencapaian & Pengalaman
+                </h2>
+                <p class="mt-4 text-slate-600 leading-relaxed">
+                    Beberapa kompetisi, riset, internship, proyek teknik, organisasi, dan kegiatan pengembangan
+                    yang membentuk perjalanan akademik serta profesional saya.
+                </p>
+            </div>
 
+            <!-- PRESTASI -->
+            <div class="space-y-6 mb-16">
+                <div class="flex items-center gap-3 border-b border-slate-300 pb-2">
+                    <span class="font-mono text-xs text-amber-700">[01]</span>
+                    <h3 class="text-sm font-bold uppercase tracking-wider">Prestasi Kompetisi</h3>
+                </div>
 
-    <section id="engineering" class="min-h-screen pt-24 pb-20 font-sans bg-[#0f172a] text-slate-200 scroll-mt-16">
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-amber-700">September 2026</span>
+                        <h4 class="mt-2 font-bold text-lg">Juara 1 GEMASTE</h4>
+                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">Kompetisi Esai Nasional GEMASTE yang diselenggarakan HIMPROTE FT UNNES.</p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-sky-700">2026</span>
+                        <h4 class="mt-2 font-bold text-lg">Silver Medal — Technology</h4>
+                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">2nd International Student Summit, Sentosa Foundation & Universiti Sains Islam Malaysia, Kuala Lumpur.</p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-orange-700">2026</span>
+                        <h4 class="mt-2 font-bold text-lg">Bronze Medal — Environment</h4>
+                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">2nd International Student Summit, Sentosa Foundation & Universiti Sains Islam Malaysia, Kuala Lumpur.</p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                        <div class="image-placeholder mb-4">Placeholder foto lomba / sertifikat</div>
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-slate-500">2025</span>
+                        <h4 class="mt-2 font-bold text-lg">Juara 2 KTI & Best Poster</h4>
+                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">Piala Dekan 2025, Fakultas Teknik, Universitas Negeri Semarang.</p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-slate-500">2025</span>
+                        <h4 class="mt-2 font-bold text-lg">Best Presentation — ICIBS</h4>
+                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">International Conference of Innovative Biofrontiers Students, Universitas Brawijaya.</p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
+                        <div class="image-placeholder mb-4">Placeholder foto lomba / sertifikat</div>
+                        <span class="text-[10px] font-mono uppercase tracking-wider text-slate-500">2025</span>
+                        <h4 class="mt-2 font-bold text-lg">Juara 2 Esai Nasional 16 HAKTP</h4>
+                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">Kompetisi esai nasional oleh Satgas PPK Universitas Negeri Semarang.</p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- RISET & PAPER -->
+            <div class="space-y-6 mb-16">
+                <div class="flex items-center gap-3 border-b border-slate-300 pb-2">
+                    <span class="font-mono text-xs text-purple-700">[02]</span>
+                    <h3 class="text-sm font-bold uppercase tracking-wider">Riset, Paper & Proyek Akademik</h3>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                    <article class="bg-slate-900 text-slate-100 rounded-2xl p-6 border border-slate-800">
+                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <span class="text-[10px] font-mono text-purple-300 uppercase tracking-wider">Deep Learning & Computer Vision // 2026</span>
+                        <h4 class="mt-2 text-xl font-bold">Melanoma Detection Using Transfer Learning</h4>
+                        <p class="mt-3 text-sm text-slate-400 leading-relaxed">
+                            Mengembangkan dan mengevaluasi ResNet50, EfficientNetB3, dan MobileNetV2 untuk klasifikasi citra medis,
+                            mencakup preprocessing dataset, transfer learning, fine-tuning, dan analisis performa model.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-4 text-[10px] font-mono text-slate-400">
+                            <span>#DeepLearning</span><span>#ComputerVision</span><span>#TransferLearning</span><span>#MedicalAI</span>
+                        </div>
+                    </article>
+
+                    <article class="bg-slate-900 text-slate-100 rounded-2xl p-6 border border-slate-800">
+                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <span class="text-[10px] font-mono text-emerald-300 uppercase tracking-wider">Embedded Systems & Control // 2026</span>
+                        <h4 class="mt-2 text-xl font-bold">Embedded PID–Kalman & Face Tracking</h4>
+                        <p class="mt-3 text-sm text-slate-400 leading-relaxed">
+                            Mengimplementasikan arsitektur PID–Kalman untuk filtering dan stabilisasi sensor secara real-time,
+                            lalu mengintegrasikan Computer Vision dan ESP32 untuk sistem pan-tilt tracking berbasis kontrol PID.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mt-4 text-[10px] font-mono text-slate-400">
+                            <span>#PID</span><span>#KalmanFilter</span><span>#ESP32</span><span>#EdgeVision</span>
+                        </div>
+                    </article>
+                </div>
+            </div>
+
+            <!-- INTERNSHIP -->
+            <div class="space-y-6 mb-16">
+                <div class="flex items-center gap-3 border-b border-slate-300 pb-2">
+                    <span class="font-mono text-xs text-cyan-700">[03]</span>
+                    <h3 class="text-sm font-bold uppercase tracking-wider">Internship & Pengalaman Teknis</h3>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                    <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <p class="text-[10px] font-mono uppercase tracking-wider text-cyan-700">Juli—Agustus 2026</p>
+                        <h4 class="mt-2 text-xl font-bold">Quantum Physics Research Intern — BRIN</h4>
+                        <p class="text-xs text-slate-400 mt-1">Kawasan Sains dan Teknologi B.J. Habibie, Tangerang Selatan</p>
+                        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                            Mengimplementasikan Quantum Phase Estimation untuk H₂ dan membandingkannya dengan VQE,
+                            serta membangun dan menganalisis rangkaian QFT/QFT†, controlled phase rotation, SWAP,
+                            Draper/QFT adder, phase estimation, dan algoritma Shor.
+                        </p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
+                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <p class="text-[10px] font-mono uppercase tracking-wider text-cyan-700">Januari—Maret 2023</p>
+                        <h4 class="mt-2 text-xl font-bold">Network Engineer Intern — KLHK</h4>
+                        <p class="text-xs text-slate-400 mt-1">Kementerian Lingkungan Hidup & Kehutanan</p>
+                        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
+                            Menangani instalasi dan pemeliharaan perangkat jaringan serta kabel antarbagian,
+                            troubleshooting perangkat lunak jaringan, dan mendukung pemeliharaan website.
+                        </p>
+                    </article>
+                </div>
+            </div>
+
+            <!-- ORGANISASI -->
+            <div class="space-y-6">
+                <div class="flex items-center gap-3 border-b border-slate-300 pb-2">
+                    <span class="font-mono text-xs text-rose-700">[04]</span>
+                    <h3 class="text-sm font-bold uppercase tracking-wider">Organisasi, Tim Teknik & Pengabdian</h3>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5">
+                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <div class="flex justify-between gap-4">
+                            <h4 class="font-bold">Software Staff — SUVIFOR UNNES</h4>
+                            <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2024—2026</span>
+                        </div>
+                        <p class="mt-2 text-sm text-slate-600">Mengembangkan dan menjaga sistem embedded flight control untuk racing plane serta mendukung integrasi software–hardware.</p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5">
+                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <div class="flex justify-between gap-4">
+                            <h4 class="font-bold">Ketua Departemen Pendidikan & Pengembangan Potensi Siswa</h4>
+                            <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025—2026</span>
+                        </div>
+                        <p class="mt-2 text-sm text-slate-600">Memimpin program akademik, soft skills, leadership, workshop, mentoring, dan talk show yang menjangkau lebih dari 100 mahasiswa.</p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5">
+                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <div class="flex justify-between gap-4">
+                            <h4 class="font-bold">Ketua Pelaksana Sekolah YES FT 2025</h4>
+                            <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025</span>
+                        </div>
+                        <p class="mt-2 text-sm text-slate-600">Mengkoordinasikan program pengembangan mahasiswa lintas fakultas yang melibatkan lebih dari 200 peserta.</p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5">
+                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <div class="flex justify-between gap-4">
+                            <h4 class="font-bold">Electrical Staff — PANDAWA TEAM UNNES</h4>
+                            <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025</span>
+                        </div>
+                        <p class="mt-2 text-sm text-slate-600">Berkontribusi dalam sistem kelistrikan kendaraan hemat energi untuk persiapan Kontes Mobil Hemat Energi Indonesia.</p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5">
+                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <div class="flex justify-between gap-4">
+                            <h4 class="font-bold">Echoes of Joy — AIESEC in Trisakti</h4>
+                            <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025</span>
+                        </div>
+                        <p class="mt-2 text-sm text-slate-600">Mengikuti proyek sosial SDG 4 dengan kegiatan pengajaran anak usia dini dan sekolah jalanan di Jakarta.</p>
+                    </article>
+
+                    <article class="bg-white border border-slate-200 rounded-2xl p-5">
+                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <div class="flex justify-between gap-4">
+                            <h4 class="font-bold">Volunteer & Mentor STEM</h4>
+                            <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025—2026</span>
+                        </div>
+                        <p class="mt-2 text-sm text-slate-600">Terlibat dalam Peduly Jakarta, RoboSchool SUVIFOR, serta mentoring IoT Smart Farming bagi siswa sekolah menengah.</p>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<section id="engineering" class="min-h-screen pt-24 pb-24 text-slate-200 scroll-mt-16 bg-[linear-gradient(180deg,#111827_0%,#0f172a_12%,#0f172a_88%,#f8f6f2_100%)]">
         <div class="max-w-5xl mx-auto px-6 space-y-20">
             
 
@@ -183,13 +428,13 @@
             <section id="headline" class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
                 <div class="lg:col-span-6 space-y-6">
                     <div class="inline-flex items-center space-x-2 bg-cyan-500/10 text-cyan-400 border border-cyan-500/20 px-3 py-1 rounded-full text-xs font-mono">
-                        <span>PROYEK UNGGULAN // SOROTAN</span>
+                        <span>ENGINEERING // PORTOFOLIO TEKNIS</span>
                     </div>
                     <h2 class="text-4xl font-bold tracking-tight text-white leading-tight">
-                        Laboratorium Rekayasa
+                        Proyek Rekayasa & Sistem
                     </h2>
                     <p class="text-slate-400 text-base leading-relaxed font-sans">
-                        Pengembangan sistem avionik roket model tingkat lanjut dengan integrasi sensor real-time, estimasi orientasi berbasis filter kalman, dan sistem kendali aktuator aktif. Dirancang untuk validasi data aerodinamika secara empiris menggunakan arsitektur multithreading FreeRTOS pada ESP32.
+                        Eksplorasi sistem avionik dan flight control berbasis ESP32 dengan integrasi sensor real-time, estimasi orientasi, dan kendali aktuator. Bagian ini berfokus pada proyek teknis yang saya bangun atau kembangkan secara langsung.
                     </p>
                     <div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-800 font-mono text-xs text-slate-400">
                         <div>
@@ -220,469 +465,7 @@
                 </div>
             </section>
 
-            <!-- CATEGORY 1: EMBEDDED SYSTEMS & ROBOTICS -->
-            <section class="space-y-8">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-2">
-                    <span class="text-emerald-400 font-mono text-sm">[01]</span>
-                    <h2 class="text-lg font-semibold uppercase tracking-wider text-white">Sistem Embedded & Robotika</h2>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    
-                    <!-- Proyek 1: Rocket Guidance -->
-                    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">Rocket Guidance & Telemetry System</h3>
-                                <span class="text-[10px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-800/50 px-2 py-0.5 rounded">ESP32</span>
-                            </div>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Sistem pemandu roket menggunakan 4 *moveable fins* untuk kontrol orientasi stabil. Dilengkapi sensor MPU dan BMP untuk kalkulasi data penerbangan, serta visualisasi grafis real-time langsung ke dashboard website.
-                            </p>
-                        </div>
-                        <div class="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
-                            <span>#ESP32</span> <span>#MPU-6050</span> <span>#BMP-Sensor</span> <span>#WebSockets</span> <span>#Control-System</span>
-                        </div>
-                    </div>
-
-                    <!-- Proyek 2: HydroSense -->
-                    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">HydroSense: Smart Plant Pot</h3>
-                                <span class="text-[10px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-800/50 px-2 py-0.5 rounded">Arduino</span>
-                            </div>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Pot pintar berbasis Arduino dengan sensor *water level*, *soil moisture*, dan *touch sensor* untuk otomatisasi *water pump*. Layar OLED menampilkan data real-time beserta ekspresi wajah/emotikon adaptif yang menggambarkan tingkat hidrasi tanaman.
-                            </p>
-                        </div>
-                        <div class="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
-                            <span>#Arduino</span> <span>#OLED-SSD1306</span> <span>#Automation</span> <span>#Smart-Agriculture</span>
-                        </div>
-                    </div>
-
-                    <!-- Proyek 3: Fit Watch -->
-                    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">Fit Watch Wearable</h3>
-                                <span class="text-[10px] font-mono bg-emerald-950 text-emerald-400 border border-emerald-800/50 px-2 py-0.5 rounded">Wearable</span>
-                            </div>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Pengembangan *smartwatch* mandiri berbasis ESP32 dan MPU6050 untuk mendeteksi serta menghitung langkah kaki secara presisi, membedakan ritme jalan/lari, serta melacak detak jantung melalui *heart sensor* terintegrasi.
-                            </p>
-                        </div>
-                        <div class="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
-                            <span>#ESP32</span> <span>#MPU6050</span> <span>#Biomedical-Sensor</span> <span>#Fitness-Tracker</span>
-                        </div>
-                    </div>
-
-                    <!-- Proyek 4: IoT Kangkung Hidroponik (Lomba Karya Tulis) -->
-                    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-emerald-500/40 transition-all duration-300 flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">Automated Hydroponic IOT — Kangkung Study</h3>
-                                <span class="text-[10px] font-mono bg-blue-950 text-blue-400 border border-blue-800/50 px-2 py-0.5 rounded">Competition</span>
-                            </div>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Sistem otomasi penuh budidaya kangkung hidroponik untuk kompetisi karya tulis ilmiah. Diintegrasikan dengan website custom untuk memonitor fase pertumbuhan tanaman secara presisi serta mengontrol distribusi pupuk cair otomatis.
-                            </p>
-                        </div>
-                        <div class="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
-                            <span>#IoT</span> <span>#Full-Control</span> <span>#Automation</span> <span>#Research</span>
-                        </div>
-                    </div>
-
-
-                    <!-- Proyek 5 Suvifor -->
-                    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-sky-500/40 transition-all duration-300 flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">SUVIFOR UNNES — Racing Plane UAV</h3>
-                                <span class="text-[10px] font-mono bg-sky-950 text-sky-400 border border-sky-800/50 px-2 py-0.5 rounded">KRTI Competition</span>
-                            </div>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Kontribusi dalam riset dan pengembangan pesawat tanpa awak (UAV) kecepatan tinggi untuk kategori Racing Plane pada Kontes Robot Terbang Indonesia (KRTI). Berfokus pada optimasi aerodinamika wahana terbang, konfigurasi sistem propulsi elektrik, serta tuning autopilot *closed-loop* untuk mencapai efisiensi manuver maksimum di lintasan balap.
-                            </p>
-                        </div>
-                        <div class="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
-                            <span>#UAV</span> <span>#Aerodynamics</span> <span>#Autopilot</span> <span>#Propulsion-System</span> <span>#RIPTEK-UNNES</span>
-                        </div>
-                    </div>
-
-
-                    <!-- Proyek 6 PANDAWA -->
-                    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-rose-500/40 transition-all duration-300 flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">Pandawa Team UNNES — Body & Electrical</h3>
-                                <span class="text-[10px] font-mono bg-rose-950 text-rose-400 border border-rose-800/50 px-2 py-0.5 rounded">KMHE Competition</span>
-                            </div>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Berkontribusi dalam divisi Body & Electrical pada tim kendaraan hemat energi UNNES untuk ajang Kontes Mobil Hemat Energi (KMHE). Mengembangkan struktur bodi kendaraan ringan berbahan komposit serat karbon guna meminimalkan koefisien hambatan udara (*drag coefficient*), serta merancang manajemen distribusi daya listrik internal yang efisien untuk menekan konsumsi energi serendah mungkin.
-                            </p>
-                        </div>
-                        <div class="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
-                            <span>#Vehicle-Design</span> <span>#Carbon-Fiber</span> <span>#Electrical-Wiring</span> <span>#Energy-Efficiency</span> <span>#KMHE</span>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <section class="space-y-8">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-2">
-                    <span class="text-cyan-400 font-mono text-sm">[3D]</span>
-                    <h2 class="text-lg font-semibold uppercase tracking-wider text-white">Galeri CAD & Aset Kompetisi</h2>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                    <div class="border border-slate-800 bg-[#161920] rounded-xl p-4 relative shadow-2xl flex flex-col justify-between">
-                        <div>
-                            <div class="absolute top-4 left-4 font-mono text-[10px] text-sky-400 bg-[#0f1115] px-2 py-1 rounded border border-sky-900/50 z-10">
-                                SUVIFOR // Racing Plane Wahana Fixed-Wing
-                            </div>
-                            <model-viewer 
-                                src="assets/3d/RacingPlane.glb" 
-                                alt="SUVIFOR Racing Plane 3D Model" 
-                                auto-rotate 
-                                camera-controls
-                                class="w-full h-[320px] bg-[#0f1115] rounded-lg mb-4"
-                                rotation-per-second="15deg" 
-                                interaction-prompt-threshold="3000">
-                            </model-viewer>
-                        </div>
-                        <div class="space-y-1 font-sans">
-                            <h4 class="text-sm font-bold text-white">High-Speed UAV Aerodynamic Mesh</h4>
-                            <p class="text-xs text-slate-400">Iterasi desain bodi wahana terbang untuk mereduksi hambatan parasitisme udara pada kecepatan tinggi.</p>
-                        </div>
-                    </div>
-
-                    <div class="border border-slate-800 bg-[#161920] rounded-xl p-4 relative shadow-2xl flex flex-col justify-between">
-                        <div>
-                            <div class="absolute top-4 left-4 font-mono text-[10px] text-rose-400 bg-[#0f1115] px-2 py-1 rounded border border-rose-900/50 z-10">
-                                PANDAWA TEAM // KMHE Energy-Efficient Prototype
-                            </div>
-                            <model-viewer 
-                                src="assets/3d/KMHE_Car.glb" 
-                                alt="Pandawa KMHE Car 3D Model" 
-                                auto-rotate 
-                                camera-controls
-                                class="w-full h-[320px] bg-[#0f1115] rounded-lg mb-4"
-                                rotation-per-second="15deg" 
-                                interaction-prompt-threshold="3000">
-                            </model-viewer>
-                        </div>
-                        <div class="space-y-1 font-sans">
-                            <h4 class="text-sm font-bold text-white">Ultra-Low Drag Coefficient Shell</h4>
-                            <p class="text-xs text-slate-400">Eksplorasi ergonomi bodi purwarupa dan kalkulasi mekanis ruang sasis untuk penempatan komponen kelistrikan.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CATEGORY 2: FULL-STACK WEB DEVELOPMENT -->
-            <section class="space-y-8">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-2">
-                    <span class="text-amber-400 font-mono text-sm">[02]</span>
-                    <h2 class="text-lg font-semibold uppercase tracking-wider text-white">Pengembangan Web Full-Stack</h2>
-                </div>
-                
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    
-                    <!-- Website 1: Lunaruna -->
-                    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">LunAruna — Mental Health Platform</h3>
-                                <span class="text-[10px] font-mono bg-amber-950 text-amber-400 border border-amber-800/50 px-2 py-0.5 rounded">Laravel</span>
-                            </div>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Aplikasi web konseling psikologi interaktif dengan fitur penelusuran riwayat mood (*mood tracking*). Dibangun dengan arsitektur database terstruktur untuk mempermudah akses kesehatan mental pengguna.
-                            </p>
-                        </div>
-                        <div class="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
-                            <span>#Laravel</span> <span>#TailwindCSS</span> <span>#MySQL</span> <span>#Psychology-Tech</span>
-                        </div>
-                    </div>
-
-                    <!-- Website 2: IoT Hidroponik MQTT (Pengabdian Dosen) -->
-                    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">Hydroponic IoT Management Dashboard</h3>
-                                <span class="text-[10px] font-mono bg-red-950 text-red-400 border border-red-800/50 px-2 py-0.5 rounded">Community Service</span>
-                            </div>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Website monitoring ekosistem hidroponik skala besar yang dikembangkan untuk proyek pengabdian masyarakat bersama dosen. Menggunakan protokol komunikasi MQTT yang super ringan untuk transfer data sensor IoT secara *real-time*.
-                            </p>
-                        </div>
-                        <div class="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
-                            <span>#MQTT-Protocol</span> <span>#Full-Stack</span> <span>#IoT-Dashboard</span> <span>#Academic-Collab</span>
-                        </div>
-                    </div>
-
-                    <!-- Website 3: E-Commerce PC Peripheral -->
-                    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">Hardware Hub & Custom PC Build Service</h3>
-                                <span class="text-[10px] font-mono bg-amber-950 text-amber-400 border border-amber-800/50 px-2 py-0.5 rounded">E-Commerce</span>
-                            </div>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Platform web e-commerce komersial yang didedikasikan untuk penjualan peripheral komputer kelas atas serta penyediaan jasa kustomisasi rakit PC (*custom build*) terintegrasi.
-                            </p>
-                        </div>
-                        <div class="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
-                            <span>#E-Commerce</span> <span>#Web-App</span> <span>#Database-Design</span> <span>#Payment-Gateway</span>
-                        </div>
-                    </div>
-
-                    <!-- Website 4: Beabadoobee Profile -->
-                    <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-5 hover:border-amber-500/40 transition-all duration-300 flex flex-col justify-between">
-                        <div class="space-y-3">
-                            <div class="flex justify-between items-start">
-                                <h3 class="text-lg font-bold text-white">Beabadoobee Visual Artist Profile</h3>
-                                <span class="text-[10px] font-mono bg-stone-800 text-stone-300 border border-stone-700 px-2 py-0.5 rounded">Creative Web</span>
-                            </div>
-                            <p class="text-slate-400 text-sm leading-relaxed">
-                                Website profil interaktif untuk penyanyi Beabadoobee. Menonjolkan sisi estetika visual tinggi untuk menampilkan diskografi, lirik lagu, katalog album, serta kompilasi cerita perjalanan seni musisi terkait.
-                            </p>
-                        </div>
-                        <div class="pt-4 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
-                            <span>#UI-UX</span> <span>#Front-End</span> <span>#Creative-Coding</span> <span>#Multimedia</span>
-                        </div>
-                    </div>
-
-                </div>
-            </section>
-
-            <!-- CATEGORY 3: ARTIFICIAL INTELLIGENCE & COMPUTER VISION RESEARCH -->
-            <section class="space-y-8">
-                <div class="flex items-center gap-3 border-b border-slate-800 pb-2">
-                    <span class="text-purple-400 font-mono text-sm">[03]</span>
-                    <h2 class="text-lg font-semibold uppercase tracking-wider text-white">Kecerdasan Buatan & Riset</h2>
-                </div>
-                
-                <div class="bg-slate-900/50 border border-slate-800 rounded-xl p-6 hover:border-purple-500/40 transition-all duration-300">
-                    <div class="space-y-4">
-                        <div class="flex flex-col sm:flex-row sm:justify-between sm:items-start gap-2">
-                            <div>
-                                <h3 class="text-xl font-bold text-white">Comparative Study of Deep Learning Models for Melanoma Detection</h3>
-                                <p class="text-xs text-slate-400 font-mono mt-1">Published Framework / Convolutional Neural Networks (CNN)</p>
-                            </div>
-                            <span class="text-[10px] font-mono bg-purple-950 text-purple-400 border border-purple-800/50 px-2 py-0.5 rounded self-start">Deep Learning</span>
-                        </div>
-                        <p class="text-slate-400 text-sm leading-relaxed">
-                            Melakukan eksperimen riset komparatif mengevaluasi performa tiga arsitektur *Deep Learning* mutakhir, yaitu **ResNet-50**, **MobileNet-V2**, dan **EfficientNet** dalam mendeteksi penyakit kanker kulit Melanoma secara akurat. Fokus pada analisis tradeoff antara akurasi model vs kecepatan komputasi (*resource efficiency*) untuk deployment skala praktis.
-                        </p>
-                        <div class="pt-2 flex flex-wrap gap-2 text-[11px] font-mono text-slate-400">
-                            <span>#Python</span> <span>#TensorFlow</span> <span>#PyTorch</span> <span>#Computer-Vision</span> <span>#Medical-AI</span> <span>#Image-Classification</span>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-        </div>
-    </sectio
-    <!-- ========================================================= -->
-    <!-- SECTION 3: PENCAPAIAN & PENGALAMAN                       -->
-    <!-- ========================================================= -->
-    <section id="achievement" class="bg-[#f4f6f8] text-slate-900 py-24 scroll-mt-16 border-y border-slate-200">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="max-w-3xl mb-14">
-                <div class="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.2em] uppercase text-slate-500 border border-slate-200 bg-white px-3 py-1 rounded-full">
-                    Rekam Jejak // 2023—2026
-                </div>
-                <h2 class="mt-5 text-4xl md:text-5xl font-bold tracking-tight text-slate-900">
-                    Pencapaian & Pengalaman
-                </h2>
-                <p class="mt-4 text-slate-600 leading-relaxed">
-                    Beberapa kompetisi, riset, internship, proyek teknik, organisasi, dan kegiatan pengembangan
-                    yang membentuk perjalanan akademik serta profesional saya.
-                </p>
-            </div>
-
-            <!-- PRESTASI -->
-            <div class="space-y-6 mb-16">
-                <div class="flex items-center gap-3 border-b border-slate-300 pb-2">
-                    <span class="font-mono text-xs text-amber-700">[01]</span>
-                    <h3 class="text-sm font-bold uppercase tracking-wider">Prestasi Kompetisi</h3>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-                        <span class="text-[10px] font-mono uppercase tracking-wider text-amber-700">September 2026</span>
-                        <h4 class="mt-2 font-bold text-lg">Juara 1 GEMASTE</h4>
-                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">Kompetisi Esai Nasional GEMASTE yang diselenggarakan HIMPROTE FT UNNES.</p>
-                    </article>
-
-                    <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-                        <span class="text-[10px] font-mono uppercase tracking-wider text-sky-700">2026</span>
-                        <h4 class="mt-2 font-bold text-lg">Silver Medal — Technology</h4>
-                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">2nd International Student Summit, Sentosa Foundation & Universiti Sains Islam Malaysia, Kuala Lumpur.</p>
-                    </article>
-
-                    <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-                        <span class="text-[10px] font-mono uppercase tracking-wider text-orange-700">2026</span>
-                        <h4 class="mt-2 font-bold text-lg">Bronze Medal — Environment</h4>
-                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">2nd International Student Summit, Sentosa Foundation & Universiti Sains Islam Malaysia, Kuala Lumpur.</p>
-                    </article>
-
-                    <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-                        <span class="text-[10px] font-mono uppercase tracking-wider text-slate-500">2025</span>
-                        <h4 class="mt-2 font-bold text-lg">Juara 2 KTI & Best Poster</h4>
-                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">Piala Dekan 2025, Fakultas Teknik, Universitas Negeri Semarang.</p>
-                    </article>
-
-                    <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-                        <span class="text-[10px] font-mono uppercase tracking-wider text-slate-500">2025</span>
-                        <h4 class="mt-2 font-bold text-lg">Best Presentation — ICIBS</h4>
-                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">International Conference of Innovative Biofrontiers Students, Universitas Brawijaya.</p>
-                    </article>
-
-                    <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-                        <span class="text-[10px] font-mono uppercase tracking-wider text-slate-500">2025</span>
-                        <h4 class="mt-2 font-bold text-lg">Juara 2 Esai Nasional 16 HAKTP</h4>
-                        <p class="mt-2 text-sm text-slate-600 leading-relaxed">Kompetisi esai nasional oleh Satgas PPK Universitas Negeri Semarang.</p>
-                    </article>
-                </div>
-            </div>
-
-            <!-- RISET & PAPER -->
-            <div class="space-y-6 mb-16">
-                <div class="flex items-center gap-3 border-b border-slate-300 pb-2">
-                    <span class="font-mono text-xs text-purple-700">[02]</span>
-                    <h3 class="text-sm font-bold uppercase tracking-wider">Riset, Paper & Proyek Akademik</h3>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-                    <article class="bg-slate-900 text-slate-100 rounded-2xl p-6 border border-slate-800">
-                        <span class="text-[10px] font-mono text-purple-300 uppercase tracking-wider">Deep Learning & Computer Vision // 2026</span>
-                        <h4 class="mt-2 text-xl font-bold">Melanoma Detection Using Transfer Learning</h4>
-                        <p class="mt-3 text-sm text-slate-400 leading-relaxed">
-                            Mengembangkan dan mengevaluasi ResNet50, EfficientNetB3, dan MobileNetV2 untuk klasifikasi citra medis,
-                            mencakup preprocessing dataset, transfer learning, fine-tuning, dan analisis performa model.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-4 text-[10px] font-mono text-slate-400">
-                            <span>#DeepLearning</span><span>#ComputerVision</span><span>#TransferLearning</span><span>#MedicalAI</span>
-                        </div>
-                    </article>
-
-                    <article class="bg-slate-900 text-slate-100 rounded-2xl p-6 border border-slate-800">
-                        <span class="text-[10px] font-mono text-emerald-300 uppercase tracking-wider">Embedded Systems & Control // 2026</span>
-                        <h4 class="mt-2 text-xl font-bold">Embedded PID–Kalman & Face Tracking</h4>
-                        <p class="mt-3 text-sm text-slate-400 leading-relaxed">
-                            Mengimplementasikan arsitektur PID–Kalman untuk filtering dan stabilisasi sensor secara real-time,
-                            lalu mengintegrasikan Computer Vision dan ESP32 untuk sistem pan-tilt tracking berbasis kontrol PID.
-                        </p>
-                        <div class="flex flex-wrap gap-2 mt-4 text-[10px] font-mono text-slate-400">
-                            <span>#PID</span><span>#KalmanFilter</span><span>#ESP32</span><span>#EdgeVision</span>
-                        </div>
-                    </article>
-                </div>
-            </div>
-
-            <!-- INTERNSHIP -->
-            <div class="space-y-6 mb-16">
-                <div class="flex items-center gap-3 border-b border-slate-300 pb-2">
-                    <span class="font-mono text-xs text-cyan-700">[03]</span>
-                    <h3 class="text-sm font-bold uppercase tracking-wider">Internship & Pengalaman Teknis</h3>
-                </div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
-                    <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                        <p class="text-[10px] font-mono uppercase tracking-wider text-cyan-700">Juli—Agustus 2026</p>
-                        <h4 class="mt-2 text-xl font-bold">Quantum Physics Research Intern — BRIN</h4>
-                        <p class="text-xs text-slate-400 mt-1">Kawasan Sains dan Teknologi B.J. Habibie, Tangerang Selatan</p>
-                        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-                            Mengimplementasikan Quantum Phase Estimation untuk H₂ dan membandingkannya dengan VQE,
-                            serta membangun dan menganalisis rangkaian QFT/QFT†, controlled phase rotation, SWAP,
-                            Draper/QFT adder, phase estimation, dan algoritma Shor.
-                        </p>
-                    </article>
-
-                    <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                        <p class="text-[10px] font-mono uppercase tracking-wider text-cyan-700">Januari—Maret 2023</p>
-                        <h4 class="mt-2 text-xl font-bold">Network Engineer Intern — KLHK</h4>
-                        <p class="text-xs text-slate-400 mt-1">Kementerian Lingkungan Hidup & Kehutanan</p>
-                        <p class="mt-3 text-sm text-slate-600 leading-relaxed">
-                            Menangani instalasi dan pemeliharaan perangkat jaringan serta kabel antarbagian,
-                            troubleshooting perangkat lunak jaringan, dan mendukung pemeliharaan website.
-                        </p>
-                    </article>
-                </div>
-            </div>
-
-            <!-- ORGANISASI -->
-            <div class="space-y-6">
-                <div class="flex items-center gap-3 border-b border-slate-300 pb-2">
-                    <span class="font-mono text-xs text-rose-700">[04]</span>
-                    <h3 class="text-sm font-bold uppercase tracking-wider">Organisasi, Tim Teknik & Pengabdian</h3>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <article class="bg-white border border-slate-200 rounded-2xl p-5">
-                        <div class="flex justify-between gap-4">
-                            <h4 class="font-bold">Software Staff — SUVIFOR UNNES</h4>
-                            <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2024—2026</span>
-                        </div>
-                        <p class="mt-2 text-sm text-slate-600">Mengembangkan dan menjaga sistem embedded flight control untuk racing plane serta mendukung integrasi software–hardware.</p>
-                    </article>
-
-                    <article class="bg-white border border-slate-200 rounded-2xl p-5">
-                        <div class="flex justify-between gap-4">
-                            <h4 class="font-bold">Ketua Departemen Pendidikan & Pengembangan Potensi Siswa</h4>
-                            <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025—2026</span>
-                        </div>
-                        <p class="mt-2 text-sm text-slate-600">Memimpin program akademik, soft skills, leadership, workshop, mentoring, dan talk show yang menjangkau lebih dari 100 mahasiswa.</p>
-                    </article>
-
-                    <article class="bg-white border border-slate-200 rounded-2xl p-5">
-                        <div class="flex justify-between gap-4">
-                            <h4 class="font-bold">Ketua Pelaksana Sekolah YES FT 2025</h4>
-                            <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025</span>
-                        </div>
-                        <p class="mt-2 text-sm text-slate-600">Mengkoordinasikan program pengembangan mahasiswa lintas fakultas yang melibatkan lebih dari 200 peserta.</p>
-                    </article>
-
-                    <article class="bg-white border border-slate-200 rounded-2xl p-5">
-                        <div class="flex justify-between gap-4">
-                            <h4 class="font-bold">Electrical Staff — PANDAWA TEAM UNNES</h4>
-                            <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025</span>
-                        </div>
-                        <p class="mt-2 text-sm text-slate-600">Berkontribusi dalam sistem kelistrikan kendaraan hemat energi untuk persiapan Kontes Mobil Hemat Energi Indonesia.</p>
-                    </article>
-
-                    <article class="bg-white border border-slate-200 rounded-2xl p-5">
-                        <div class="flex justify-between gap-4">
-                            <h4 class="font-bold">Echoes of Joy — AIESEC in Trisakti</h4>
-                            <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025</span>
-                        </div>
-                        <p class="mt-2 text-sm text-slate-600">Mengikuti proyek sosial SDG 4 dengan kegiatan pengajaran anak usia dini dan sekolah jalanan di Jakarta.</p>
-                    </article>
-
-                    <article class="bg-white border border-slate-200 rounded-2xl p-5">
-                        <div class="flex justify-between gap-4">
-                            <h4 class="font-bold">Volunteer & Mentor STEM</h4>
-                            <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025—2026</span>
-                        </div>
-                        <p class="mt-2 text-sm text-slate-600">Terlibat dalam Peduly Jakarta, RoboSchool SUVIFOR, serta mentoring IoT Smart Farming bagi siswa sekolah menengah.</p>
-                    </article>
-                </div>
-            </div>
-        </div>
-    </section>
-
-n>
-
-    <!-- ========================================================= -->
-    <!-- SECTION 3: TEPI GARIS (EDITORIAL / HUMAN & ARTSY LOOK)   -->
-    <!-- ========================================================= -->
-    <!-- ========================================================= -->
-    <!-- SECTION 3: TEPI GARIS (EDITORIAL / HUMAN & ARTSY LOOK)   -->
-    <!-- ========================================================= -->
-    <section id="garis-tepi" class="min-h-screen pt-24 pb-20 font-serif bg-[#fcfbf9] text-[#1c1b1a] scroll-mt-16">
+<section id="garis-tepi" class="min-h-screen pt-24 pb-20 text-[#1c1b1a] scroll-mt-16 bg-[linear-gradient(180deg,#f8f6f2_0%,#fcfbf9_14%,#fcfbf9_100%)]">
         <div class="max-w-4xl mx-auto px-6 space-y-24">
             
             <!-- Tepi Garis Editorial Header -->
@@ -1068,7 +851,7 @@ n>
 
     <script>
         document.addEventListener("DOMContentLoaded", () => {
-            const sections = ["beranda", "engineering", "achievement", "garis-tepi"]
+            const sections = ["beranda", "achievement", "engineering", "garis-tepi"]
                 .map(id => document.getElementById(id))
                 .filter(Boolean);
 
