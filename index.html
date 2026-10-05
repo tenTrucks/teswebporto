@@ -69,6 +69,81 @@
                 );
             color: rgb(100 116 139);
         }
+        .portfolio-media,
+        .portfolio-carousel {
+            aspect-ratio: 16 / 9;
+            border-radius: 0.9rem;
+            overflow: hidden;
+            background: rgb(241 245 249);
+            border: 1px solid rgba(226,232,240,.9);
+            position: relative;
+        }
+        .portfolio-media.dark,
+        .portfolio-carousel.dark {
+            background: rgb(15 23 42);
+            border-color: rgba(51,65,85,.8);
+        }
+        .portfolio-media img,
+        .portfolio-slide img {
+            width: 100%;
+            height: 100%;
+            display: block;
+        }
+        .media-cover { object-fit: cover; }
+        .media-contain {
+            object-fit: contain;
+            padding: .75rem;
+            background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+        }
+        .portfolio-carousel .portfolio-slide {
+            position: absolute;
+            inset: 0;
+            opacity: 0;
+            transition: opacity .28s ease;
+        }
+        .portfolio-carousel .portfolio-slide.is-active {
+            opacity: 1;
+            z-index: 1;
+        }
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 3;
+            width: 2rem;
+            height: 2rem;
+            border-radius: 999px;
+            display: grid;
+            place-items: center;
+            background: rgba(15,23,42,.72);
+            color: white;
+            border: 1px solid rgba(255,255,255,.35);
+            font-size: 1rem;
+            line-height: 1;
+            backdrop-filter: blur(8px);
+        }
+        .carousel-control.prev { left: .65rem; }
+        .carousel-control.next { right: .65rem; }
+        .carousel-dots {
+            position: absolute;
+            left: 50%;
+            bottom: .65rem;
+            transform: translateX(-50%);
+            z-index: 3;
+            display: flex;
+            gap: .35rem;
+            padding: .25rem .4rem;
+            border-radius: 999px;
+            background: rgba(15,23,42,.55);
+            backdrop-filter: blur(8px);
+        }
+        .carousel-dot {
+            width: .42rem;
+            height: .42rem;
+            border-radius: 999px;
+            background: rgba(255,255,255,.48);
+        }
+        .carousel-dot.is-active { background: white; }
     </style>
 </head>
 <body id="app-body" class="bg-[#f8fafc] text-slate-900 min-h-screen relative transition-colors duration-500 font-sans antialiased">
@@ -242,44 +317,56 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                     <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <div class="portfolio-carousel mb-4" data-carousel aria-label="Dokumentasi Juara 1 GEMASTE">
+                            <div class="portfolio-slide is-active"><img src="assets/img/achievements/gemaste/gemaste-2026-01.webp" alt="Fattaah Garis Husodo di dokumentasi Juara 1 GEMASTE 2026" width="480" height="853" loading="lazy" class="media-cover"></div>
+                            <div class="portfolio-slide"><img src="assets/img/achievements/gemaste/gemaste-2026-02.webp" alt="Tim GEMASTE UNNES di panggung kompetisi 2026" width="1600" height="899" loading="lazy" class="media-cover"></div>
+                            <button class="carousel-control prev" type="button" data-carousel-prev aria-label="Gambar sebelumnya">‹</button>
+                            <button class="carousel-control next" type="button" data-carousel-next aria-label="Gambar berikutnya">›</button>
+                            <div class="carousel-dots" aria-hidden="true"></div>
+                        </div>
                         <span class="text-[10px] font-mono uppercase tracking-wider text-amber-700">September 2026</span>
                         <h4 class="mt-2 font-bold text-lg">Juara 1 GEMASTE</h4>
                         <p class="mt-2 text-sm text-slate-600 leading-relaxed">Kompetisi Esai Nasional GEMASTE yang diselenggarakan HIMPROTE FT UNNES.</p>
                     </article>
 
                     <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <div class="portfolio-media mb-4"><img src="assets/img/achievements/iss/iss-silver-medal-2026.webp" alt="Sertifikat Silver Medal bidang Technology pada 2nd International Student Summit 2026" width="1280" height="904" loading="lazy" class="media-contain"></div>
                         <span class="text-[10px] font-mono uppercase tracking-wider text-sky-700">2026</span>
                         <h4 class="mt-2 font-bold text-lg">Silver Medal — Technology</h4>
                         <p class="mt-2 text-sm text-slate-600 leading-relaxed">2nd International Student Summit, Sentosa Foundation & Universiti Sains Islam Malaysia, Kuala Lumpur.</p>
                     </article>
 
                     <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <div class="portfolio-media mb-4"><img src="assets/img/achievements/iss/iss-bronze-medal-2026.webp" alt="Sertifikat Bronze Medal bidang Environment pada 2nd International Student Summit 2026" width="1280" height="904" loading="lazy" class="media-contain"></div>
                         <span class="text-[10px] font-mono uppercase tracking-wider text-orange-700">2026</span>
                         <h4 class="mt-2 font-bold text-lg">Bronze Medal — Environment</h4>
                         <p class="mt-2 text-sm text-slate-600 leading-relaxed">2nd International Student Summit, Sentosa Foundation & Universiti Sains Islam Malaysia, Kuala Lumpur.</p>
                     </article>
 
                     <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-                        <div class="image-placeholder mb-4">Placeholder foto lomba / sertifikat</div>
+                        <div class="portfolio-carousel mb-4" data-carousel aria-label="Dokumentasi Piala Dekan 2025">
+                            <div class="portfolio-slide is-active"><img src="assets/img/achievements/piala-dekan/piala-dekan-2025-stage.webp" alt="Dokumentasi penyerahan Juara 2 KTI Piala Dekan 2025" width="480" height="854" loading="lazy" class="media-cover"></div>
+                            <div class="portfolio-slide"><img src="assets/img/achievements/piala-dekan/piala-dekan-2025-team.webp" alt="Tim Juara 2 KTI dan Best Poster Piala Dekan 2025" width="1152" height="864" loading="lazy" class="media-cover"></div>
+                            <button class="carousel-control prev" type="button" data-carousel-prev aria-label="Gambar sebelumnya">‹</button>
+                            <button class="carousel-control next" type="button" data-carousel-next aria-label="Gambar berikutnya">›</button>
+                            <div class="carousel-dots" aria-hidden="true"></div>
+                        </div>
                         <span class="text-[10px] font-mono uppercase tracking-wider text-slate-500">2025</span>
                         <h4 class="mt-2 font-bold text-lg">Juara 2 KTI & Best Poster</h4>
                         <p class="mt-2 text-sm text-slate-600 leading-relaxed">Piala Dekan 2025, Fakultas Teknik, Universitas Negeri Semarang.</p>
                     </article>
 
                     <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <div class="portfolio-media mb-4"><img src="assets/img/achievements/icibs/icibs-best-presentation-2025.webp" alt="Sertifikat Best Presentation ICIBS 2025" width="1280" height="866" loading="lazy" class="media-contain"></div>
                         <span class="text-[10px] font-mono uppercase tracking-wider text-slate-500">2025</span>
                         <h4 class="mt-2 font-bold text-lg">Best Presentation — ICIBS</h4>
                         <p class="mt-2 text-sm text-slate-600 leading-relaxed">International Conference of Innovative Biofrontiers Students, Universitas Brawijaya.</p>
                     </article>
 
                     <article class="bg-white border border-slate-200 rounded-2xl p-5 shadow-sm">
-                        <div class="image-placeholder mb-4">Placeholder foto lomba / sertifikat</div>
+                        <div class="portfolio-media mb-4"><img src="assets/img/achievements/haktp/haktp-essay-2025.webp" alt="Sertifikat Juara 3 Lomba Esai Nasional 16 HAKTP 2025" width="1280" height="905" loading="lazy" class="media-contain"></div>
                         <span class="text-[10px] font-mono uppercase tracking-wider text-slate-500">2025</span>
-                        <h4 class="mt-2 font-bold text-lg">Juara 2 Esai Nasional 16 HAKTP</h4>
+                        <h4 class="mt-2 font-bold text-lg">Juara 3 Esai Nasional 16 HAKTP</h4>
                         <p class="mt-2 text-sm text-slate-600 leading-relaxed">Kompetisi esai nasional oleh Satgas PPK Universitas Negeri Semarang.</p>
                     </article>
                 </div>
@@ -294,7 +381,7 @@
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
                     <article class="bg-slate-900 text-slate-100 rounded-2xl p-6 border border-slate-800">
-                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <div class="portfolio-media dark mb-4"><img src="assets/img/projects/melanoma/melanoma-confusion-matrix-mobile.webp" alt="Confusion matrix MobileNetV2 untuk eksperimen klasifikasi melanoma" width="1711" height="1361" loading="lazy" class="media-contain"></div>
                         <span class="text-[10px] font-mono text-purple-300 uppercase tracking-wider">Deep Learning & Computer Vision // 2026</span>
                         <h4 class="mt-2 text-xl font-bold">Melanoma Detection Using Transfer Learning</h4>
                         <p class="mt-3 text-sm text-slate-400 leading-relaxed">
@@ -307,7 +394,13 @@
                     </article>
 
                     <article class="bg-slate-900 text-slate-100 rounded-2xl p-6 border border-slate-800">
-                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <div class="portfolio-carousel dark mb-4" data-carousel aria-label="Dokumentasi Embedded PID Kalman dan ESP32">
+                            <div class="portfolio-slide is-active"><img src="assets/img/projects/pid-kalman/pid-kalman-architecture.webp" alt="Diagram arsitektur sistem PID Kalman dan face tracking" width="882" height="356" loading="lazy" class="media-contain"></div>
+                            <div class="portfolio-slide"><img src="assets/img/projects/pid-kalman/esp32-devkit-render.webp" alt="Render ESP32 DevKit untuk proyek embedded control" width="1920" height="1080" loading="lazy" class="media-cover"></div>
+                            <button class="carousel-control prev" type="button" data-carousel-prev aria-label="Gambar sebelumnya">‹</button>
+                            <button class="carousel-control next" type="button" data-carousel-next aria-label="Gambar berikutnya">›</button>
+                            <div class="carousel-dots" aria-hidden="true"></div>
+                        </div>
                         <span class="text-[10px] font-mono text-emerald-300 uppercase tracking-wider">Embedded Systems & Control // 2026</span>
                         <h4 class="mt-2 text-xl font-bold">Embedded PID–Kalman & Face Tracking</h4>
                         <p class="mt-3 text-sm text-slate-400 leading-relaxed">
@@ -330,7 +423,7 @@
 
                 <div class="grid grid-cols-1 lg:grid-cols-2 gap-5">
                     <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <div class="portfolio-media mb-4"><img src="assets/img/experience/brin/brin-building-cropped-2026.webp" alt="Foto crop Fattaah Garis Husodo di gedung BRIN saat internship Quantum Physics" width="720" height="515" loading="lazy" class="media-cover"></div>
                         <p class="text-[10px] font-mono uppercase tracking-wider text-cyan-700">Juli—Agustus 2026</p>
                         <h4 class="mt-2 text-xl font-bold">Quantum Physics Research Intern — BRIN</h4>
                         <p class="text-xs text-slate-400 mt-1">Kawasan Sains dan Teknologi B.J. Habibie, Tangerang Selatan</p>
@@ -342,7 +435,7 @@
                     </article>
 
                     <article class="bg-white border border-slate-200 rounded-2xl p-6 shadow-sm">
-                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <div class="portfolio-media mb-4"><img src="assets/img/experience/klhk/klhk-network-intern-2023.webp" alt="Dokumentasi Network Engineer Intern di KLHK bersama tim" width="1280" height="960" loading="lazy" class="media-cover"></div>
                         <p class="text-[10px] font-mono uppercase tracking-wider text-cyan-700">Januari—Maret 2023</p>
                         <h4 class="mt-2 text-xl font-bold">Network Engineer Intern — KLHK</h4>
                         <p class="text-xs text-slate-400 mt-1">Kementerian Lingkungan Hidup & Kehutanan</p>
@@ -363,7 +456,7 @@
 
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <article class="bg-white border border-slate-200 rounded-2xl p-5">
-                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <div class="portfolio-media mb-4"><img src="assets/img/experience/suvifor/suvifor-racing-plane-field-2025.webp" alt="Dokumentasi SUVIFOR dengan racing plane di lapangan" width="1296" height="1600" loading="lazy" class="media-cover"></div>
                         <div class="flex justify-between gap-4">
                             <h4 class="font-bold">Software Staff — SUVIFOR UNNES</h4>
                             <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2024—2026</span>
@@ -372,7 +465,7 @@
                     </article>
 
                     <article class="bg-white border border-slate-200 rounded-2xl p-5">
-                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <div class="portfolio-media mb-4"><img src="assets/img/experience/yes-ft/yes-ft-head-of-department-2025.webp" alt="Dokumentasi Kepala Departemen Pendidikan dan Pengembangan Potensi Siswa YES FT 2025" width="1600" height="1000" loading="lazy" class="media-cover"></div>
                         <div class="flex justify-between gap-4">
                             <h4 class="font-bold">Ketua Departemen Pendidikan & Pengembangan Potensi Siswa</h4>
                             <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025—2026</span>
@@ -381,7 +474,7 @@
                     </article>
 
                     <article class="bg-white border border-slate-200 rounded-2xl p-5">
-                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <div class="portfolio-media mb-4"><img src="assets/img/experience/yes-ft/yes-ft-school-chair-2025.webp" alt="Dokumentasi Ketua Pelaksana Sekolah YES FT 2025 saat memimpin acara" width="1600" height="899" loading="lazy" class="media-cover"></div>
                         <div class="flex justify-between gap-4">
                             <h4 class="font-bold">Ketua Pelaksana Sekolah YES FT 2025</h4>
                             <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025</span>
@@ -390,7 +483,13 @@
                     </article>
 
                     <article class="bg-white border border-slate-200 rounded-2xl p-5">
-                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <div class="portfolio-carousel mb-4" data-carousel aria-label="Dokumentasi PANDAWA TEAM UNNES">
+                            <div class="portfolio-slide is-active"><img src="assets/img/experience/pandawa/pandawa-kmhe-card-2025.webp" alt="Dokumentasi PANDAWA TEAM UNNES untuk KMHE" width="732" height="928" loading="lazy" class="media-cover"></div>
+                            <div class="portfolio-slide"><img src="assets/img/experience/pandawa/pandawa-team-activity-2025.webp" alt="Aktivitas tim PANDAWA UNNES" width="1600" height="1067" loading="lazy" class="media-cover"></div>
+                            <button class="carousel-control prev" type="button" data-carousel-prev aria-label="Gambar sebelumnya">‹</button>
+                            <button class="carousel-control next" type="button" data-carousel-next aria-label="Gambar berikutnya">›</button>
+                            <div class="carousel-dots" aria-hidden="true"></div>
+                        </div>
                         <div class="flex justify-between gap-4">
                             <h4 class="font-bold">Electrical Staff — PANDAWA TEAM UNNES</h4>
                             <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025</span>
@@ -399,7 +498,7 @@
                     </article>
 
                     <article class="bg-white border border-slate-200 rounded-2xl p-5">
-                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <div class="portfolio-media mb-4"><img src="assets/img/experience/aiesec/aiesec-echoes-of-joy-2025-03.webp" alt="Dokumentasi AIESEC Echoes of Joy hasil konversi dari HEIC" width="1600" height="1200" loading="lazy" class="media-cover"></div>
                         <div class="flex justify-between gap-4">
                             <h4 class="font-bold">Echoes of Joy — AIESEC in Trisakti</h4>
                             <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025</span>
@@ -408,7 +507,13 @@
                     </article>
 
                     <article class="bg-white border border-slate-200 rounded-2xl p-5">
-                        <div class="image-placeholder mb-4">Placeholder foto kegiatan</div>
+                        <div class="portfolio-carousel mb-4" data-carousel aria-label="Dokumentasi volunteer dan mentor STEM">
+                            <div class="portfolio-slide is-active"><img src="assets/img/experience/mentor-stem/mentor-stem-2025-01.webp" alt="Dokumentasi mentoring STEM dan IoT Smart Farming" width="1280" height="719" loading="lazy" class="media-cover"></div>
+                            <div class="portfolio-slide"><img src="assets/img/experience/mentor-stem/mentor-stem-2025-02.webp" alt="Foto kelompok kegiatan mentor STEM" width="1280" height="719" loading="lazy" class="media-cover"></div>
+                            <button class="carousel-control prev" type="button" data-carousel-prev aria-label="Gambar sebelumnya">‹</button>
+                            <button class="carousel-control next" type="button" data-carousel-next aria-label="Gambar berikutnya">›</button>
+                            <div class="carousel-dots" aria-hidden="true"></div>
+                        </div>
                         <div class="flex justify-between gap-4">
                             <h4 class="font-bold">Volunteer & Mentor STEM</h4>
                             <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025—2026</span>
@@ -465,13 +570,38 @@
                 </div>
             </section>
 
+            <section class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <article class="bg-slate-900/65 border border-slate-800 rounded-2xl p-5">
+                    <div class="portfolio-media dark mb-4"><img src="assets/img/projects/rocket/rocket-aircraft-reference.webp" alt="Dokumentasi referensi pesawat dan eksperimen avionik untuk proyek rocket flight control" width="1067" height="1600" loading="lazy" class="media-cover"></div>
+                    <p class="text-[10px] font-mono uppercase tracking-wider text-cyan-300">Avionics & Flight Control</p>
+                    <h3 class="mt-2 font-bold text-white">Rocket Flight Controller</h3>
+                    <p class="mt-2 text-sm text-slate-400 leading-relaxed">Eksplorasi estimasi orientasi, sensor fusion, dan kontrol aktuator untuk sistem roket skala prototipe.</p>
+                </article>
+
+                <article class="bg-slate-900/65 border border-slate-800 rounded-2xl p-5">
+                    <div class="portfolio-media dark mb-4"><img src="assets/img/projects/pid-kalman/pid-kalman-architecture.webp" alt="Diagram blok arsitektur PID Kalman dan face tracking" width="882" height="356" loading="lazy" class="media-contain"></div>
+                    <p class="text-[10px] font-mono uppercase tracking-wider text-emerald-300">Control System</p>
+                    <h3 class="mt-2 font-bold text-white">PID–Kalman Pipeline</h3>
+                    <p class="mt-2 text-sm text-slate-400 leading-relaxed">Rancangan pipeline controller, sensor, kamera, dan mikrokontroler untuk tracking objek secara real-time.</p>
+                </article>
+
+                <article class="bg-slate-900/65 border border-slate-800 rounded-2xl p-5">
+                    <div class="portfolio-media dark mb-4"><img src="assets/img/projects/melanoma/melanoma-confusion-matrix-mobile.webp" alt="Evaluasi model MobileNetV2 untuk klasifikasi benign dan melanoma" width="1711" height="1361" loading="lazy" class="media-contain"></div>
+                    <p class="text-[10px] font-mono uppercase tracking-wider text-purple-300">Model Evaluation</p>
+                    <h3 class="mt-2 font-bold text-white">Melanoma CV Evaluation</h3>
+                    <p class="mt-2 text-sm text-slate-400 leading-relaxed">Fokus teknis pada evaluasi performa model dan pembacaan kesalahan klasifikasi dari confusion matrix.</p>
+                </article>
+            </section>
+        </div>
+    </section>
+
 <section id="garis-tepi" class="min-h-screen pt-24 pb-20 text-[#1c1b1a] scroll-mt-16 bg-[linear-gradient(180deg,#f8f6f2_0%,#fcfbf9_14%,#fcfbf9_100%)]">
         <div class="max-w-4xl mx-auto px-6 space-y-24">
             
             <!-- Tepi Garis Editorial Header -->
             <div class="border-b border-stone-200 pb-8 text-center md:text-left">
-                <h1 class="text-4xl font-light text-stone-900 tracking-tight">Tepi Garis</h1>
-                <p class="text-sm italic text-stone-500 mt-2">Ruang untuk pengalaman manusia, dokumentasi visual, dan catatan tertulis di tepi logika.</p>
+                <h1 class="text-4xl font-light text-stone-900 tracking-tight">Garis Tepi</h1>
+                <p class="text-sm text-stone-500 mt-2">Catatan bacaan di luar ruang engineering.</p>
             </div>
 
             <!-- SUBSECTION 1: THE INTELLECTUAL LIBRARY -->
@@ -487,7 +617,7 @@
                     <!-- Buku 1: Bumi Manusia -->
                     <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
                         <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                            <img src="assets/img/bumi-manusia.webp" alt="Bumi Manusia" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=400&h=600&q=80'">
+                            <img src="assets/img/books/bumi-manusia.webp" alt="Cover buku Bumi Manusia" width="400" height="600" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="flex flex-col justify-between py-1">
                             <div class="space-y-1">
@@ -505,7 +635,7 @@
                     <!-- Buku 2: Laut Bercerita -->
                     <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
                         <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                            <img src="assets/img/laut-bercerita.webp" alt="Laut Bercerita" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=400&h=600&q=80'">
+                            <img src="assets/img/books/laut-bercerita.webp" alt="Cover buku Laut Bercerita" width="400" height="600" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="flex flex-col justify-between py-1">
                             <div class="space-y-1">
@@ -523,7 +653,7 @@
                     <!-- Buku 3: Catatan Seorang Demonstran -->
                     <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
                         <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                            <img src="assets/img/catatan-demonstran.webp" alt="Catatan Seorang Demonstran" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=400&h=600&q=80'">
+                            <img src="assets/img/books/catatan-demonstran.webp" alt="Cover buku Catatan Seorang Demonstran" width="400" height="600" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="flex flex-col justify-between py-1">
                             <div class="space-y-1">
@@ -540,7 +670,7 @@
 
                     <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
                         <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                            <img src="assets/img/dari-penjara.webp" alt="Dari Penjara ke Penjara" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1543002588-bfa74002ed7e?auto=format&fit=crop&w=400&h=600&q=80'">
+                            <img src="assets/img/books/dari-penjara.webp" alt="Cover buku Dari Penjara ke Penjara" width="400" height="600" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="flex flex-col justify-between py-1">
                             <div class="space-y-1">
@@ -565,7 +695,7 @@
                     <!-- Buku 4: Aku Ini Binatang Jalang -->
                     <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
                         <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                            <img src="assets/img/binatang-jalang.webp" alt="Aku Ini Binatang Jalang" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                            <img src="assets/img/books/binatang-jalang.webp" alt="Cover buku Aku Ini Binatang Jalang" width="400" height="600" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="flex flex-col justify-between py-1">
                             <div class="space-y-1">
@@ -580,7 +710,7 @@
                     <!-- Buku 5: Aksi Massa -->
                     <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
                         <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                            <img src="assets/img/aksi-massa.webp" alt="Aksi Massa" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                            <img src="assets/img/books/aksi-massa.webp" alt="Cover buku Aksi Massa" width="400" height="600" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="flex flex-col justify-between py-1">
                             <div class="space-y-1">
@@ -595,7 +725,7 @@
                     <!-- Buku 6: Orang-orang di Persimpangan Kiri Jalan -->
                     <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
                         <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                            <img src="assets/img/persimpangan.webp" alt="Orang-orang di Persimpangan Kiri Jalan" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                            <img src="assets/img/books/persimpangan.webp" alt="Cover buku Orang-orang di Persimpangan Kiri Jalan" width="400" height="600" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="flex flex-col justify-between py-1">
                             <div class="space-y-1">
@@ -610,7 +740,7 @@
                     <!-- Buku 7: Re: dan Perempuan -->
                     <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
                         <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                            <img src="assets/img/reperempuan.webp" alt="Re: dan Perempuan" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                            <img src="assets/img/books/reperempuan.webp" alt="Cover buku Re: dan Perempuan" width="400" height="600" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="flex flex-col justify-between py-1">
                             <div class="space-y-1">
@@ -625,7 +755,7 @@
                     <!-- Buku 8: Rudy sang Visioner -->
                     <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
                         <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                            <img src="assets/img/rudy.webp" alt="Rudy Sang Visioner" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                            <img src="assets/img/books/rudy.webp" alt="Cover buku Rudy Sang Visioner" width="400" height="600" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="flex flex-col justify-between py-1">
                             <div class="space-y-1">
@@ -640,7 +770,7 @@
                     <!-- Buku 9: Notasi -->
                     <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
                         <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                            <img src="assets/img/notasi.webp" alt="Notasi" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                            <img src="assets/img/books/notasi.webp" alt="Cover buku Notasi" width="400" height="600" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="flex flex-col justify-between py-1">
                             <div class="space-y-1">
@@ -655,7 +785,7 @@
                     <!-- Buku 10: Men are from mars women from venus -->
                     <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
                         <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                            <img src="assets/img/mars-venus.webp" alt="Men Are from Mars, Women Are from Venus" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                            <img src="assets/img/books/mars-venus.webp" alt="Cover buku Men Are from Mars, Women Are from Venus" width="400" height="600" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="flex flex-col justify-between py-1">
                             <div class="space-y-1">
@@ -670,7 +800,7 @@
                     <!-- Buku 11: Lebih putih dariku -->
                     <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
                         <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                            <img src="assets/img/lebih-putih.webp" alt="Lebih Putih Dariku" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                            <img src="assets/img/books/lebih-putih.webp" alt="Cover buku Lebih Putih Dariku" width="400" height="600" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="flex flex-col justify-between py-1">
                             <div class="space-y-1">
@@ -685,7 +815,7 @@
                     <!-- Buku 12: Seperti rindu dendam harus terbayarkan -->
                     <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
                         <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                            <img src="assets/img/rindu-dendam.webp" alt="Seperti Dendam Rindu Harus Dibayar Tuntas" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                            <img src="assets/img/books/rindu-dendam.webp" alt="Cover buku Seperti Dendam Rindu Harus Dibayar Tuntas" width="400" height="600" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="flex flex-col justify-between py-1">
                             <div class="space-y-1">
@@ -700,7 +830,7 @@
                     <!-- Buku 13: Perempuan di titik nol -->
                     <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
                         <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                            <img src="assets/img/titik-nol.webp" alt="Perempuan di Titik Nol" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                            <img src="assets/img/books/titik-nol.webp" alt="Cover buku Perempuan di Titik Nol" width="400" height="600" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="flex flex-col justify-between py-1">
                             <div class="space-y-1">
@@ -715,7 +845,7 @@
                     <!-- Buku 14: Orang orang proyek -->
                     <div class="bg-white border border-stone-200 rounded-xl p-4 flex gap-4 hover:shadow-md hover:border-stone-300 transition-all duration-300">
                         <div class="w-24 sm:w-28 aspect-[2/3] bg-stone-100 rounded-md overflow-hidden flex-shrink-0 border border-stone-200 shadow-sm">
-                            <img src="assets/img/orang-proyek.webp" alt="Orang-orang Proyek" class="w-full h-full object-cover" onerror="this.src='https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=400&h=600&q=80'">
+                            <img src="assets/img/books/orang-proyek.webp" alt="Cover buku Orang-orang Proyek" width="400" height="600" loading="lazy" class="w-full h-full object-cover">
                         </div>
                         <div class="flex flex-col justify-between py-1">
                             <div class="space-y-1">
@@ -734,58 +864,6 @@
                     <button id="btn-toggle-library" onclick="toggleLibrary()" class="font-sans text-xs font-medium uppercase tracking-widest text-amber-950 border border-stone-300 bg-stone-50 px-6 py-2.5 rounded-full hover:bg-stone-100 active:scale-95 transition-all duration-150 shadow-sm">
                         Tampilkan Lebih Banyak
                     </button>
-                </div>
-            </section>
-
-            <!-- SUBSECTION 2: ESSAYS & REFLECTIONS (MIDDLE SECTION) -->
-            <section class="space-y-10">
-                <div class="border-b border-stone-200 pb-2">
-                    <h2 class="font-sans text-xs uppercase tracking-widest text-amber-800 font-semibold">02 / Esai & Refleksi</h2>
-                </div>
-                
-                <article class="space-y-3 group cursor-pointer max-w-3xl">
-                    <span class="font-sans text-[11px] text-stone-400 uppercase tracking-wider">HCI & Filosofi Digital</span>
-                    <h3 class="text-2xl font-bold text-stone-900 group-hover:text-amber-800 transition-colors leading-tight">Menangkap Sunyi di Antara Deru Logika</h3>
-                    <p class="text-stone-600 leading-relaxed font-light text-sm font-serif">
-                        Bagaimana mengalihkan fokus dari layar kode biner menuju bidikan lensa mekanis kamera membantu saya memahami konsep Human-Computer Interaction. Fotografi mengajarkan saya bahwa di balik sistem elektronika yang kaku, ada manusia yang mendambakan antarmuka yang intuitif, humanis, dan bernyawa.
-                    </p>
-                    <div class="font-sans text-xs text-stone-400 pt-1">Juni 2026 • 6 menit baca</div>
-                </article>
-
-                <article class="space-y-3 group cursor-pointer max-w-3xl">
-                    <span class="font-sans text-[11px] text-stone-400 uppercase tracking-wider">Arsitektur Sistem</span>
-                    <h3 class="text-2xl font-bold text-stone-900 group-hover:text-amber-800 transition-colors leading-tight">Membaca Kode Alam Lewat Kacamata Kendali</h3>
-                    <p class="text-stone-600 leading-relaxed font-light text-sm font-serif">
-                        Sebuah catatan pinggir mengenai analogi antara Closed-Loop Feedback Systems di bidang teknik elektro dengan bagaimana psikologi manusia merespons kegagalan dan membentuk kebiasaan baru melalui umpan balik lingkungan sekitar di batas tepi garis kenyamanan.
-                    </p>
-                    <div class="font-sans text-xs text-stone-400 pt-1">Maret 2026 • 4 menit baca</div>
-                </article>
-            </section>
-
-            <!-- SUBSECTION 3: VISUAL DIARY / PHOTOGRAPHY (BOTTOM SECTION) -->
-            <section id="creative" class="space-y-6">
-                <div class="border-b border-stone-200 pb-2">
-                    <h2 class="font-sans text-xs uppercase tracking-widest text-amber-800 font-semibold">03 / Catatan Visual (Fotografi Jalanan)</h2>
-                </div>
-                <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                    <div class="space-y-2 group">
-                        <div class="aspect-[4/3] bg-stone-200 overflow-hidden rounded-lg border border-stone-200">
-                            <img src="https://images.unsplash.com/photo-1514565131-fce0801e5785?auto=format&fit=crop&w=600&q=80" alt="Jakarta Skyline" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
-                        </div>
-                        <p class="font-sans text-xs text-stone-500 italic px-1">Persimpangan Bayangan — Jakarta</p>
-                    </div>
-                    <div class="space-y-2 group">
-                        <div class="aspect-[4/3] bg-stone-200 overflow-hidden rounded-lg border border-stone-200">
-                            <img src="https://images.unsplash.com/photo-1501386761578-eac5c94b800a?auto=format&fit=crop&w=600&q=80" alt="Bandung Street" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
-                        </div>
-                        <p class="font-sans text-xs text-stone-500 italic px-1">Simfoni Keramaian — Bandung</p>
-                    </div>
-                    <div class="space-y-2 group">
-                        <div class="aspect-[4/3] bg-stone-200 overflow-hidden rounded-lg border border-stone-200">
-                            <img src="https://images.unsplash.com/photo-1447752875215-b2761acb3c5d?auto=format&fit=crop&w=600&q=80" alt="Nature Geometry" class="w-full h-full object-cover filter grayscale group-hover:grayscale-0 transition-all duration-500">
-                        </div>
-                        <p class="font-sans text-xs text-stone-500 italic px-1">Geometri Organik — Studi Alam</p>
-                    </div>
                 </div>
             </section>
 
@@ -815,6 +893,59 @@
                 document.getElementById('library').scrollIntoView({ behavior: 'smooth' });
             }
         }
+    </script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            document.querySelectorAll("[data-carousel]").forEach((carousel) => {
+                const slides = [...carousel.querySelectorAll(".portfolio-slide")];
+                const prev = carousel.querySelector("[data-carousel-prev]");
+                const next = carousel.querySelector("[data-carousel-next]");
+                const dotsWrap = carousel.querySelector(".carousel-dots");
+                let current = Math.max(0, slides.findIndex(slide => slide.classList.contains("is-active")));
+                let startX = null;
+
+                if (slides.length <= 1) {
+                    prev?.remove();
+                    next?.remove();
+                    dotsWrap?.remove();
+                    return;
+                }
+
+                const dots = slides.map((_, index) => {
+                    const dot = document.createElement("span");
+                    dot.className = "carousel-dot";
+                    dot.setAttribute("aria-hidden", "true");
+                    dotsWrap?.appendChild(dot);
+                    dot.addEventListener("click", () => show(index));
+                    return dot;
+                });
+
+                const show = (index) => {
+                    current = (index + slides.length) % slides.length;
+                    slides.forEach((slide, slideIndex) => {
+                        slide.classList.toggle("is-active", slideIndex === current);
+                    });
+                    dots.forEach((dot, dotIndex) => {
+                        dot.classList.toggle("is-active", dotIndex === current);
+                    });
+                };
+
+                prev?.addEventListener("click", () => show(current - 1));
+                next?.addEventListener("click", () => show(current + 1));
+                carousel.addEventListener("pointerdown", (event) => {
+                    startX = event.clientX;
+                });
+                carousel.addEventListener("pointerup", (event) => {
+                    if (startX === null) return;
+                    const delta = event.clientX - startX;
+                    if (Math.abs(delta) > 40) show(current + (delta < 0 ? 1 : -1));
+                    startX = null;
+                });
+
+                show(current);
+            });
+        });
     </script>
 
 
