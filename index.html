@@ -144,6 +144,92 @@
             background: rgba(255,255,255,.48);
         }
         .carousel-dot.is-active { background: white; }
+        @media (max-width: 767px) {
+            #global-nav > div {
+                height: auto;
+                min-height: 5.75rem;
+                padding-top: .55rem;
+                padding-bottom: .55rem;
+                flex-direction: column;
+                align-items: stretch;
+                justify-content: center;
+                gap: .5rem;
+            }
+            #global-nav > div > a {
+                width: max-content;
+                min-height: 1.6rem;
+            }
+            #global-nav .mobile-nav-scroll {
+                width: 100%;
+                max-width: none;
+                border-radius: 999px;
+                scroll-padding-inline: .5rem;
+                -webkit-overflow-scrolling: touch;
+            }
+            .nav-anchor {
+                min-height: 2.5rem;
+                display: inline-flex;
+                align-items: center;
+            }
+            body > section {
+                scroll-margin-top: 6.75rem;
+            }
+            #beranda {
+                padding-top: 7.25rem;
+                min-height: auto;
+            }
+            #beranda h1 {
+                font-size: clamp(2.55rem, 12vw, 3.05rem);
+                line-height: .98;
+            }
+            #beranda .hero-shell {
+                min-height: auto;
+                gap: 0;
+            }
+            #beranda .hero-copy {
+                padding-top: 1.75rem;
+                padding-bottom: 3.25rem;
+            }
+            #beranda .hero-cta a {
+                min-height: 2.75rem;
+                justify-content: center;
+            }
+            .portfolio-carousel {
+                touch-action: pan-y;
+            }
+            .carousel-control {
+                width: 2.75rem;
+                height: 2.75rem;
+                font-size: 1.2rem;
+            }
+            .carousel-control.prev { left: .5rem; }
+            .carousel-control.next { right: .5rem; }
+            .carousel-dot {
+                width: .5rem;
+                height: .5rem;
+            }
+            .mobile-org-heading {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: .15rem;
+            }
+            #engineering model-viewer {
+                height: clamp(17.5rem, 78vw, 20rem);
+            }
+            #btn-toggle-library {
+                min-height: 2.75rem;
+            }
+            #library .grid > .bg-white {
+                gap: .75rem;
+                padding: .85rem;
+            }
+            #library .grid > .bg-white > div:first-child {
+                width: 5.25rem;
+            }
+            #library .grid > .bg-white h3 {
+                font-size: .86rem;
+            }
+        }
     </style>
 </head>
 <body id="app-body" class="bg-[#f8fafc] text-slate-900 min-h-screen relative transition-colors duration-500 font-sans antialiased">
@@ -161,7 +247,7 @@
                 <span class="font-sans font-semibold text-sm tracking-tight text-slate-900">fattaah.dev</span>
             </a>
 
-            <div class="flex items-center gap-1 bg-slate-100 p-1 rounded-full border border-slate-200/70 overflow-x-auto max-w-[72vw] sm:max-w-none scrollbar-hide">
+            <div class="mobile-nav-scroll flex items-center gap-1 bg-slate-100 p-1 rounded-full border border-slate-200/70 overflow-x-auto max-w-[72vw] sm:max-w-none scrollbar-hide">
                 <a data-nav="beranda" href="#beranda" class="nav-anchor whitespace-nowrap px-3 py-1.5 rounded-full text-[11px] sm:text-xs font-medium bg-white text-slate-900 shadow-sm transition-all">
                     Beranda
                 </a>
@@ -181,9 +267,9 @@
     <!-- SECTION 1: BERANDA / PROFIL UTS                            -->
     <!-- ========================================================= -->
     <section id="beranda" class="min-h-screen w-full relative overflow-hidden pt-20 scroll-mt-16 bg-[linear-gradient(180deg,#f8fafc_0%,#f8fafc_82%,#f4f6f8_100%)]">
-        <div class="max-w-7xl mx-auto px-6 lg:px-16 w-full min-h-[calc(100vh-5rem)] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-20">
+        <div class="hero-shell max-w-7xl mx-auto px-6 lg:px-16 w-full min-h-[calc(100vh-5rem)] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center relative z-20">
 
-            <div class="lg:col-span-7 xl:col-span-7 py-10 lg:py-14">
+            <div class="hero-copy lg:col-span-7 xl:col-span-7 py-10 lg:py-14">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-slate-200 bg-white/80 backdrop-blur text-[10px] sm:text-xs font-mono uppercase tracking-[0.18em] text-slate-500 mb-5">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span>
                     Teknik Komputer // Universitas Negeri Semarang
@@ -261,7 +347,7 @@
                 </div>
 
                 <!-- CTA -->
-                <div class="flex flex-wrap gap-3 mt-8">
+                <div class="hero-cta flex flex-col min-[375px]:flex-row sm:flex-wrap gap-3 mt-8">
                     <a href="#engineering"
                        class="px-5 py-2.5 bg-slate-900 text-white rounded-full text-xs font-medium hover:bg-slate-700 active:scale-95 transition-all shadow-sm">
                         Jelajahi Portofolio
@@ -293,7 +379,7 @@
         </div>
     </section>
 
-<section id="achievement" class="text-slate-900 py-24 scroll-mt-16 bg-[linear-gradient(180deg,#f4f6f8_0%,#f7f8fa_88%,#111827_100%)]">
+<section id="achievement" class="text-slate-900 py-16 md:py-24 scroll-mt-16 bg-[linear-gradient(180deg,#f4f6f8_0%,#f7f8fa_88%,#111827_100%)]">
         <div class="max-w-6xl mx-auto px-6">
             <div class="max-w-3xl mb-14">
                 <div class="inline-flex items-center gap-2 text-[10px] font-mono tracking-[0.2em] uppercase text-slate-500 border border-slate-200 bg-white px-3 py-1 rounded-full">
@@ -457,7 +543,7 @@
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
                     <article class="bg-white border border-slate-200 rounded-2xl p-5">
                         <div class="portfolio-media mb-4"><img src="assets/img/experience/suvifor/suvifor-racing-plane-field-2025.webp" alt="Dokumentasi SUVIFOR dengan racing plane di lapangan" width="1296" height="1600" loading="lazy" class="media-cover"></div>
-                        <div class="flex justify-between gap-4">
+                        <div class="mobile-org-heading flex sm:flex-row sm:justify-between gap-4">
                             <h4 class="font-bold">Software Staff — SUVIFOR UNNES</h4>
                             <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2024—2026</span>
                         </div>
@@ -466,7 +552,7 @@
 
                     <article class="bg-white border border-slate-200 rounded-2xl p-5">
                         <div class="portfolio-media mb-4"><img src="assets/img/experience/yes-ft/yes-ft-head-of-department-2025.webp" alt="Dokumentasi Kepala Departemen Pendidikan dan Pengembangan Potensi Siswa YES FT 2025" width="1600" height="1000" loading="lazy" class="media-cover"></div>
-                        <div class="flex justify-between gap-4">
+                        <div class="mobile-org-heading flex sm:flex-row sm:justify-between gap-4">
                             <h4 class="font-bold">Ketua Departemen Pendidikan & Pengembangan Potensi Siswa</h4>
                             <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025—2026</span>
                         </div>
@@ -475,7 +561,7 @@
 
                     <article class="bg-white border border-slate-200 rounded-2xl p-5">
                         <div class="portfolio-media mb-4"><img src="assets/img/experience/yes-ft/yes-ft-school-chair-2025.webp" alt="Dokumentasi Ketua Pelaksana Sekolah YES FT 2025 saat memimpin acara" width="1600" height="899" loading="lazy" class="media-cover"></div>
-                        <div class="flex justify-between gap-4">
+                        <div class="mobile-org-heading flex sm:flex-row sm:justify-between gap-4">
                             <h4 class="font-bold">Ketua Pelaksana Sekolah YES FT 2025</h4>
                             <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025</span>
                         </div>
@@ -490,7 +576,7 @@
                             <button class="carousel-control next" type="button" data-carousel-next aria-label="Gambar berikutnya">›</button>
                             <div class="carousel-dots" aria-hidden="true"></div>
                         </div>
-                        <div class="flex justify-between gap-4">
+                        <div class="mobile-org-heading flex sm:flex-row sm:justify-between gap-4">
                             <h4 class="font-bold">Electrical Staff — PANDAWA TEAM UNNES</h4>
                             <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025</span>
                         </div>
@@ -499,7 +585,7 @@
 
                     <article class="bg-white border border-slate-200 rounded-2xl p-5">
                         <div class="portfolio-media mb-4"><img src="assets/img/experience/aiesec/aiesec-echoes-of-joy-2025-03.webp" alt="Dokumentasi AIESEC Echoes of Joy hasil konversi dari HEIC" width="1600" height="1200" loading="lazy" class="media-cover"></div>
-                        <div class="flex justify-between gap-4">
+                        <div class="mobile-org-heading flex sm:flex-row sm:justify-between gap-4">
                             <h4 class="font-bold">Echoes of Joy — AIESEC in Trisakti</h4>
                             <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025</span>
                         </div>
@@ -514,7 +600,7 @@
                             <button class="carousel-control next" type="button" data-carousel-next aria-label="Gambar berikutnya">›</button>
                             <div class="carousel-dots" aria-hidden="true"></div>
                         </div>
-                        <div class="flex justify-between gap-4">
+                        <div class="mobile-org-heading flex sm:flex-row sm:justify-between gap-4">
                             <h4 class="font-bold">Volunteer & Mentor STEM</h4>
                             <span class="text-[10px] font-mono text-slate-400 whitespace-nowrap">2025—2026</span>
                         </div>
@@ -525,8 +611,8 @@
         </div>
     </section>
 
-<section id="engineering" class="min-h-screen pt-24 pb-24 text-slate-200 scroll-mt-16 bg-[linear-gradient(180deg,#111827_0%,#0f172a_12%,#0f172a_88%,#f8f6f2_100%)]">
-        <div class="max-w-5xl mx-auto px-6 space-y-20">
+<section id="engineering" class="min-h-screen pt-16 md:pt-24 pb-16 md:pb-24 text-slate-200 scroll-mt-16 bg-[linear-gradient(180deg,#111827_0%,#0f172a_12%,#0f172a_88%,#f8f6f2_100%)]">
+        <div class="max-w-5xl mx-auto px-6 space-y-12 md:space-y-20">
             
 
             <!-- Headline Section: 3D Rocket Project -->
@@ -541,7 +627,7 @@
                     <p class="text-slate-400 text-base leading-relaxed font-sans">
                         Eksplorasi sistem avionik dan flight control berbasis ESP32 dengan integrasi sensor real-time, estimasi orientasi, dan kendali aktuator. Bagian ini berfokus pada proyek teknis yang saya bangun atau kembangkan secara langsung.
                     </p>
-                    <div class="grid grid-cols-2 gap-4 pt-4 border-t border-slate-800 font-mono text-xs text-slate-400">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-4 border-t border-slate-800 font-mono text-xs text-slate-400">
                         <div>
                             <span class="text-cyan-400 block font-bold mb-1">PERANGKAT KERAS:</span>
                             ESP32, MPU6050, Custom PCB Design
@@ -563,7 +649,7 @@
                         alt="Rocket Avionics 3D Model" 
                         auto-rotate 
                         camera-controls
-                        class="w-full h-[400px] bg-[#0f1115] rounded-lg"
+                        class="w-full h-[clamp(17.5rem,78vw,20rem)] md:h-[400px] bg-[#0f1115] rounded-lg"
                         rotation-per-second="20deg" 
                         interaction-prompt-threshold="3000">
                     </model-viewer>
@@ -595,8 +681,8 @@
         </div>
     </section>
 
-<section id="garis-tepi" class="min-h-screen pt-24 pb-20 text-[#1c1b1a] scroll-mt-16 bg-[linear-gradient(180deg,#f8f6f2_0%,#fcfbf9_14%,#fcfbf9_100%)]">
-        <div class="max-w-4xl mx-auto px-6 space-y-24">
+<section id="garis-tepi" class="min-h-screen pt-16 md:pt-24 pb-16 md:pb-20 text-[#1c1b1a] scroll-mt-16 bg-[linear-gradient(180deg,#f8f6f2_0%,#fcfbf9_14%,#fcfbf9_100%)]">
+        <div class="max-w-4xl mx-auto px-6 space-y-12 md:space-y-24">
             
             <!-- Tepi Garis Editorial Header -->
             <div class="border-b border-stone-200 pb-8 text-center md:text-left">
@@ -904,6 +990,7 @@
                 const dotsWrap = carousel.querySelector(".carousel-dots");
                 let current = Math.max(0, slides.findIndex(slide => slide.classList.contains("is-active")));
                 let startX = null;
+                let startY = null;
 
                 if (slides.length <= 1) {
                     prev?.remove();
@@ -933,15 +1020,36 @@
 
                 prev?.addEventListener("click", () => show(current - 1));
                 next?.addEventListener("click", () => show(current + 1));
+                const handleSwipe = (endX, endY) => {
+                    if (startX === null || startY === null) return;
+                    const delta = endX - startX;
+                    const verticalDelta = endY - startY;
+                    if (Math.abs(delta) > 48 && Math.abs(delta) > Math.abs(verticalDelta) * 1.25) {
+                        show(current + (delta < 0 ? 1 : -1));
+                    }
+                    startX = null;
+                    startY = null;
+                };
                 carousel.addEventListener("pointerdown", (event) => {
                     startX = event.clientX;
+                    startY = event.clientY;
                 });
                 carousel.addEventListener("pointerup", (event) => {
-                    if (startX === null) return;
-                    const delta = event.clientX - startX;
-                    if (Math.abs(delta) > 40) show(current + (delta < 0 ? 1 : -1));
-                    startX = null;
+                    handleSwipe(event.clientX, event.clientY);
                 });
+                carousel.addEventListener("pointercancel", () => {
+                    startX = null;
+                    startY = null;
+                });
+                carousel.addEventListener("touchstart", (event) => {
+                    if (event.touches.length !== 1) return;
+                    startX = event.touches[0].clientX;
+                    startY = event.touches[0].clientY;
+                }, { passive: true });
+                carousel.addEventListener("touchend", (event) => {
+                    if (!event.changedTouches.length) return;
+                    handleSwipe(event.changedTouches[0].clientX, event.changedTouches[0].clientY);
+                }, { passive: true });
 
                 show(current);
             });
